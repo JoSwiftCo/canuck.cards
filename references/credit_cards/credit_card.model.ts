@@ -1,4 +1,4 @@
-import { Benefit } from "../Benefits/benefit.model";
+import { BenefitCode } from "../Benefits/benefit.model";
 import { IssueCodeName } from "../Issuers/issuer.model";
 import { NetworkCode } from "../networks/network.model";
 import { RewardProgramCodeName } from "../reward_programs/reward_program.model";
@@ -61,5 +61,5 @@ export interface CreditCard {
     referralLink: string,
     rewardProgramCode: RewardProgramCodeName,
     additionalCard: AdditionalCard,
-    benefits: Array<Benefit>
+    benefits: Array<BenefitCode>
 }

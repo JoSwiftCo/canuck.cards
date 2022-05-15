@@ -27,7 +27,7 @@ export const Benefits:Array<Benefit> = [
     },
     {
         displayName: 'FX Spending',
-        code: 'travel'
+        code: 'fxspending'
     },
     {
         displayName: 'Free',
@@ -51,7 +51,7 @@ export const Benefits:Array<Benefit> = [
     },
     {
         displayName: 'Hotel',
-        code: 'travel'
+        code: 'hotel'
     },
     {
         displayName: 'USD Spending',

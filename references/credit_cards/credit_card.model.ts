@@ -46,12 +46,12 @@ type CardType = 'credit' | 'charge' | 'prepaid';
 
 /**
  * Rules for codeName:
- * 1. Do not include the words "card", "mastercard" or "visa"
+ * 1. Do not include the words "card" at the end of the name
  * 2. All lowercase, separated by "_"
  * 3. Follow this format: <issuer_code>_<card_name>
  * Examples:
- * Incorrect: Amex_Cobalt | amexCobalt | amex_cobalt_card | amexcobalt | scotia_cashback_mastercard
- * Correct: amex_cobalt | scotia_cashback
+ * Incorrect: Amex_Cobalt | amexCobalt | amex_cobalt_card | amexcobalt
+ * Correct: amex_cobalt
  */
 export interface CreditCard {
     codeName: string, // Unique identifier to be used for the image thumbnail

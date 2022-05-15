@@ -30,6 +30,6 @@ export type IssueCodeName =
     'simplii' |
     'tangerine' |
     'td' |
-    'triangle'
-
+    'triangle' |
+    'wealthsimple'
 ;

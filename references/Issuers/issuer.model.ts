@@ -1,9 +1,3 @@
-import { IssueCodeName } from "./issuer_code_name.type";
-
-/**
- * To do:
- * 1. Figure out a way to crawl the websites using allCreditCardPage | allNonCreditCardPage
- */
 export interface Issuer {
     displayName: string,
     codeName: IssueCodeName,
@@ -12,3 +6,30 @@ export interface Issuer {
     numberOfPrepaidCard: number, // Including debit cards & prepaid cards. Note: Charge card (from Amex) will be counted toward credit cards
     linkToAllPrepaidCards: string, // Used to track if there's a new card
 }
+
+// Curated list of card issuers currently supported by canuck.cards
+export type IssueCodeName = 
+    'alterna' |
+    'amex' |
+    'bmo' |
+    'capitalone' |
+    'cibc' |
+    'cwb' |
+    'hometrust' |
+    'cicici' |
+    'invis' |
+    'laurential' |
+    'manulife' |
+    'nationalbank' |
+    'pcfinancial' |
+    'rbc' |
+    'refreshfinancial' |
+    'rogersbank' |
+    'scotiabank' |
+    'servus' |
+    'simplii' |
+    'tangerine' |
+    'td' |
+    'triangle'
+
+;

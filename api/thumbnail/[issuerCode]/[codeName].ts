@@ -20,7 +20,7 @@ export default (req: VercelRequest, res: VercelResponse) => {
   readStream.on("open", function () {
     res.writeHead(200, {
       "Content-Type": "image/webp",
-      "Content-disposition": "inline; filename=" + codeName,
+      "Content-disposition": "inline; filename=" + codeName
     });
 
     readStream.pipe(res);

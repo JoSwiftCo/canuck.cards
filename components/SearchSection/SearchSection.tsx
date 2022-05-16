@@ -8,7 +8,7 @@ import { Benefit } from '../../references/benefits/benefit.model'
 import { Benefits } from '../../references/benefits/benefits'
 import { Issuer } from '../../references/issuers/issuer.model'
 import { Issuers } from '../../references/issuers/issuers'
-
+import { mergeTailwindClass } from '../../utils/tailwindClass'
 interface FilterItem {
     id: string,
     name: string,
@@ -76,10 +76,6 @@ const filters:Array<FilterItem> = [
         options: issuerOptions
     },
 ]
-
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
 
 const SearchSection = () => {
     const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
@@ -208,7 +204,7 @@ const SearchSection = () => {
                                                     {({ active }) => (
                                                         <a
                                                             href={option.href}
-                                                            className={classNames(
+                                                            className={mergeTailwindClass(
                                                                 option.current ? 'font-medium text-gray-900' : 'text-gray-500',
                                                                 active ? 'bg-gray-100' : '',
                                                                 'block px-4 py-2 text-sm'

@@ -16,7 +16,7 @@ import {
     CreditCardIcon
 } from '@heroicons/react/outline';
 import { ChevronDownIcon } from '@heroicons/react/solid';
-
+import { mergeTailwindClass } from '../../utils/tailwindClass';
 const solutions = [
     {
         name: 'Analytics',
@@ -81,10 +81,6 @@ const recentPosts = [
     { id: 3, name: 'Improve your customer experience', href: '#' },
 ]
 
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
-
 const Header = () => {
     return (
         <Popover className="relative bg-white">
@@ -111,14 +107,14 @@ const Header = () => {
                             {({ open }) => (
                                 <>
                                     <Popover.Button
-                                        className={classNames(
+                                        className={mergeTailwindClass(
                                             open ? 'text-gray-900' : 'text-gray-500',
                                             'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
                                         )}
                                     >
                                         <span>Solutions</span>
                                         <ChevronDownIcon
-                                            className={classNames(
+                                            className={mergeTailwindClass(
                                                 open ? 'text-gray-600' : 'text-gray-400',
                                                 'ml-2 h-5 w-5 group-hover:text-gray-500'
                                             )}
@@ -183,14 +179,14 @@ const Header = () => {
                             {({ open }) => (
                                 <>
                                     <Popover.Button
-                                        className={classNames(
+                                        className={mergeTailwindClass(
                                             open ? 'text-gray-900' : 'text-gray-500',
                                             'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
                                         )}
                                     >
                                         <span>More</span>
                                         <ChevronDownIcon
-                                            className={classNames(
+                                            className={mergeTailwindClass(
                                                 open ? 'text-gray-600' : 'text-gray-400',
                                                 'ml-2 h-5 w-5 group-hover:text-gray-500'
                                             )}

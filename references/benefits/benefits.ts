@@ -6,6 +6,14 @@ export const Benefits:Array<Benefit> = [
         codeName: 'travel'
     },
     {
+        displayName: 'Crypto Rewards',
+        codeName: 'crypto'
+    },
+    {
+        displayName: 'Cash back',
+        codeName: 'cashback'
+    },
+    {
         displayName: 'Merchandise',
         codeName: 'merchandise'
     },
@@ -16,10 +24,6 @@ export const Benefits:Array<Benefit> = [
     {
         displayName: 'Balance Transfer',
         codeName: 'balancetransfer'
-    },
-    {
-        displayName: 'Cash back',
-        codeName: 'cashback'
     },
     {
         displayName: 'Rebuild credit',

@@ -18,4 +18,5 @@ export type BenefitCode =
     'insurance' |
     'hotel' |
     'usd' |
-    'metal'
+    'metal' |
+    'crypto'

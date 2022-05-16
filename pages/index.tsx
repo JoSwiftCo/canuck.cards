@@ -3,7 +3,6 @@ import path from "path";
 import fs from "fs";
 import { createContext, useState } from 'react';
 import { Card } from '../references/Cards/card.model';
-import CardImage from '../components/CreditCardImage/CardImage';
 import Header from '../components/Header/Header';
 import { SearchContextProvider } from '../components/SearchContext/SearchContext';
 import SearchSection from '../components/SearchSection/SearchSection';
@@ -19,14 +18,6 @@ const Home = ({ data }) => {
       <SearchContextProvider>
         <SearchSection></SearchSection>
         <div>
-          {
-            allCards.map(card => (
-              <CardImage
-                key={card.codeName}
-                issuerCode={card.issuer}
-                imageUrl={card.codeName}></CardImage>
-            ))
-          }
         </div>
       </SearchContextProvider>
 

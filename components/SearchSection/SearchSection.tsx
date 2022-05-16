@@ -2,6 +2,30 @@ import { Fragment, useState } from 'react'
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
 import { ChevronDownIcon, FilterIcon, MinusSmIcon, PlusSmIcon, ViewGridIcon } from '@heroicons/react/solid'
+import { Networks } from '../../references/networks/networks'
+import { Network } from '../../references/networks/network.model'
+import { Benefit } from '../../references/benefits/benefit.model'
+import { Benefits } from '../../references/benefits/benefits'
+import { Issuer } from '../../references/issuers/issuer.model'
+import { Issuers } from '../../references/issuers/issuers'
+
+interface FilterItem {
+    id: string,
+    name: string,
+    options: Array<NetworkSelector> | Array<BenefitSelector> | Array<IssuerSelector>
+}
+
+interface NetworkSelector extends Network {
+    checked: Boolean
+}
+
+interface BenefitSelector extends Benefit {
+    checked: Boolean
+}
+
+interface IssuerSelector extends Issuer {
+    checked: Boolean
+}
 
 const sortOptions = [
     { name: 'Most Popular', href: '#', current: true },
@@ -10,48 +34,46 @@ const sortOptions = [
     { name: 'Price: Low to High', href: '#', current: false },
     { name: 'Price: High to Low', href: '#', current: false },
 ]
-const subCategories = [
-    { name: 'Totes', href: '#' },
-    { name: 'Backpacks', href: '#' },
-    { name: 'Travel Bags', href: '#' },
-    { name: 'Hip Bags', href: '#' },
-    { name: 'Laptop Sleeves', href: '#' },
-]
-const filters = [
+
+const networkOptions:Array<NetworkSelector> = Networks.map(item => {
+    const newItem:NetworkSelector = {
+        checked: false,
+        ...item
+    }
+    return newItem;
+});
+
+const benefitOptions:Array<BenefitSelector> = Benefits.map(item => {
+    const newItem:BenefitSelector = {
+        checked: false,
+        ...item
+    }
+    return newItem;
+});
+
+const issuerOptions:Array<IssuerSelector> = Issuers.map(item => {
+    const newItem:IssuerSelector = {
+        checked: false,
+        ...item
+    }
+    return newItem;
+});
+
+const filters:Array<FilterItem> = [
     {
-        id: 'color',
-        name: 'Color',
-        options: [
-            { value: 'white', label: 'White', checked: false },
-            { value: 'beige', label: 'Beige', checked: false },
-            { value: 'blue', label: 'Blue', checked: true },
-            { value: 'brown', label: 'Brown', checked: false },
-            { value: 'green', label: 'Green', checked: false },
-            { value: 'purple', label: 'Purple', checked: false },
-        ],
+        id: 'networks',
+        name: 'Network',
+        options: networkOptions
     },
     {
-        id: 'category',
-        name: 'Category',
-        options: [
-            { value: 'new-arrivals', label: 'New Arrivals', checked: false },
-            { value: 'sale', label: 'Sale', checked: false },
-            { value: 'travel', label: 'Travel', checked: true },
-            { value: 'organization', label: 'Organization', checked: false },
-            { value: 'accessories', label: 'Accessories', checked: false },
-        ],
+        id: 'benefits',
+        name: 'Benefits',
+        options: benefitOptions
     },
     {
-        id: 'size',
-        name: 'Size',
-        options: [
-            { value: '2l', label: '2L', checked: false },
-            { value: '6l', label: '6L', checked: false },
-            { value: '12l', label: '12L', checked: false },
-            { value: '18l', label: '18L', checked: false },
-            { value: '20l', label: '20L', checked: false },
-            { value: '40l', label: '40L', checked: true },
-        ],
+        id: 'issuers',
+        name: 'Issuers',
+        options: issuerOptions
     },
 ]
 
@@ -105,16 +127,6 @@ const SearchSection = () => {
                                     {/* Filters */}
                                     <form className="mt-4 border-t border-gray-200">
                                         <h3 className="sr-only">Categories</h3>
-                                        <ul role="list" className="font-medium text-gray-900 px-2 py-3">
-                                            {subCategories.map((category) => (
-                                                <li key={category.name}>
-                                                    <a href={category.href} className="block px-2 py-3">
-                                                        {category.name}
-                                                    </a>
-                                                </li>
-                                            ))}
-                                        </ul>
-
                                         {filters.map((section) => (
                                             <Disclosure as="div" key={section.id} className="border-t border-gray-200 px-4 py-6">
                                                 {({ open }) => (
@@ -134,11 +146,11 @@ const SearchSection = () => {
                                                         <Disclosure.Panel className="pt-6">
                                                             <div className="space-y-6">
                                                                 {section.options.map((option, optionIdx) => (
-                                                                    <div key={option.value} className="flex items-center">
+                                                                    <div key={option.codeName} className="flex items-center">
                                                                         <input
                                                                             id={`filter-mobile-${section.id}-${optionIdx}`}
                                                                             name={`${section.id}[]`}
-                                                                            defaultValue={option.value}
+                                                                            defaultValue={option.codeName}
                                                                             type="checkbox"
                                                                             defaultChecked={option.checked}
                                                                             className="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"
@@ -147,7 +159,7 @@ const SearchSection = () => {
                                                                             htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
                                                                             className="ml-3 min-w-0 flex-1 text-gray-500"
                                                                         >
-                                                                            {option.label}
+                                                                            {option.displayName}
                                                                         </label>
                                                                     </div>
                                                                 ))}
@@ -165,8 +177,8 @@ const SearchSection = () => {
                 </Transition.Root>
 
                 <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="relative z-10 flex items-baseline justify-between pt-10 pb-6 border-b border-gray-200">
-                        <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">New Arrivals</h1>
+                    <div className="relative z-10 flex items-baseline justify-between pt-6 pb-6">
+                        <h1 className="text-3xl tracking-tight text-gray-900">Browse cards</h1>
 
                         <div className="flex items-center">
                             <Menu as="div" className="relative inline-block text-left">
@@ -234,16 +246,8 @@ const SearchSection = () => {
 
                         <div className="grid grid-cols-1 lg:grid-cols-4 gap-x-8 gap-y-10">
                             {/* Filters */}
-                            <form className="hidden lg:block">
+                            <div className="hidden lg:block">
                                 <h3 className="sr-only">Categories</h3>
-                                <ul role="list" className="text-sm font-medium text-gray-900 space-y-4 pb-6 border-b border-gray-200">
-                                    {subCategories.map((category) => (
-                                        <li key={category.name}>
-                                            <a href={category.href}>{category.name}</a>
-                                        </li>
-                                    ))}
-                                </ul>
-
                                 {filters.map((section) => (
                                     <Disclosure as="div" key={section.id} className="border-b border-gray-200 py-6">
                                         {({ open }) => (
@@ -263,11 +267,11 @@ const SearchSection = () => {
                                                 <Disclosure.Panel className="pt-6">
                                                     <div className="space-y-4">
                                                         {section.options.map((option, optionIdx) => (
-                                                            <div key={option.value} className="flex items-center">
+                                                            <div key={option.codeName} className="flex items-center">
                                                                 <input
                                                                     id={`filter-${section.id}-${optionIdx}`}
                                                                     name={`${section.id}[]`}
-                                                                    defaultValue={option.value}
+                                                                    defaultValue={option.codeName}
                                                                     type="checkbox"
                                                                     defaultChecked={option.checked}
                                                                     className="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500"
@@ -276,7 +280,7 @@ const SearchSection = () => {
                                                                     htmlFor={`filter-${section.id}-${optionIdx}`}
                                                                     className="ml-3 text-sm text-gray-600"
                                                                 >
-                                                                    {option.label}
+                                                                    {option.displayName}
                                                                 </label>
                                                             </div>
                                                         ))}
@@ -286,7 +290,7 @@ const SearchSection = () => {
                                         )}
                                     </Disclosure>
                                 ))}
-                            </form>
+                            </div>
 
                             {/* Product grid */}
                             <div className="lg:col-span-3">

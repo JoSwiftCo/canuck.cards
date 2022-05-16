@@ -3,62 +3,62 @@ import { Benefit } from "./benefit.model";
 export const Benefits:Array<Benefit> = [
     {
         displayName: 'Travel',
-        code: 'travel'
+        codeName: 'travel'
     },
     {
         displayName: 'Merchandise',
-        code: 'merchandise'
+        codeName: 'merchandise'
     },
     {
         displayName: 'Low Rate',
-        code: 'lowrate'
+        codeName: 'lowrate'
     },
     {
         displayName: 'Balance Transfer',
-        code: 'balancetransfer'
+        codeName: 'balancetransfer'
     },
     {
         displayName: 'Cash back',
-        code: 'cashback'
+        codeName: 'cashback'
     },
     {
         displayName: 'Rebuild credit',
-        code: 'rebuildcredit'
+        codeName: 'rebuildcredit'
     },
     {
         displayName: 'FX Spending',
-        code: 'fxspending'
+        codeName: 'fxspending'
     },
     {
         displayName: 'Free',
-        code: 'free'
+        codeName: 'free'
     },
     {
         displayName: 'Lounge Access',
-        code: 'lounge'
+        codeName: 'lounge'
     },
     {
         displayName: 'Business spending',
-        code: 'business'
+        codeName: 'business'
     },
     {
         displayName: 'Wifi',
-        code: 'wifi'
+        codeName: 'wifi'
     },
     {
         displayName: 'Insurance',
-        code: 'insurance'
+        codeName: 'insurance'
     },
     {
         displayName: 'Hotel',
-        code: 'hotel'
+        codeName: 'hotel'
     },
     {
         displayName: 'USD Spending',
-        code: 'usd'
+        codeName: 'usd'
     },
     {
         displayName: 'Metal card',
-        code: 'metal'
+        codeName: 'metal'
     }
 ];

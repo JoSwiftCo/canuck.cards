@@ -1,6 +1,6 @@
 export interface Benefit {
     displayName: string,
-    code: BenefitCode
+    codeName: BenefitCode
 }
 
 export type BenefitCode =

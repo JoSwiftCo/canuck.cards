@@ -1,11 +1,28 @@
 import styles from '../styles/Home.module.css'
 import path from "path";
 import fs from "fs";
+import { createContext, useState } from 'react';
+import { Card } from '../references/Cards/card.model';
+import CardImage from '../components/CreditCardImage/CardImage';
+
+const AllCardsContext = createContext([]);
 
 const Home = ({ data }) => {
   console.log(data);
+  const [allCards] = useState<Array<Card>>(data);
   return (
-    <div></div>
+    <AllCardsContext.Provider value={allCards}>
+      <div>
+        {
+          allCards.map(card => (
+            <CardImage 
+              key={card.codeName}
+              issuerCode={card.issuer}
+              imageUrl={card.codeName}></CardImage>
+          ))
+        }
+      </div>
+    </AllCardsContext.Provider>
   );
 }
 

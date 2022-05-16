@@ -45,7 +45,7 @@ type CardType = 'credit' | 'charge' | 'prepaid';
  * Incorrect: Amex_Cobalt | amexCobalt | amex_cobalt_card | amexcobalt
  * Correct: amex_cobalt
  */
-export interface CreditCard {
+export interface Card {
     codeName: string, // Unique identifier to be used for the image thumbnail
     displayName: string,
     description: string,

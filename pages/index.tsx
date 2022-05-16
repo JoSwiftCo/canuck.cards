@@ -6,6 +6,7 @@ import { Card } from '../references/Cards/card.model';
 import CardImage from '../components/CreditCardImage/CardImage';
 import Header from '../components/Header/Header';
 import { SearchContextProvider } from '../components/SearchContext/SearchContext';
+import SearchSection from '../components/SearchSection/SearchSection';
 
 const AllCardsContext = createContext([]);
 
@@ -16,6 +17,7 @@ const Home = ({ data }) => {
     <AllCardsContext.Provider value={allCards}>
       <Header></Header>
       <SearchContextProvider>
+        <SearchSection></SearchSection>
         <div>
           {
             allCards.map(card => (

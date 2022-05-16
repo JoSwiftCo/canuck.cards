@@ -14,7 +14,6 @@ const FilterSections = (props: FilterSectionsProps) => {
         isMobile,
         labelClasses
     } = props;
-    console.log('Filter [isMobile:', isMobile,'] is rendered')
     const { filters, updateFilterOptions } = useContext(SearchSectionFilterContext);
     return (<>
         {filters.map((section, sectionIdx) => (

@@ -3,7 +3,7 @@ import { Issuer } from "../../references/issuers/issuer.model"
 import { Network } from "../../references/networks/network.model"
 
 export interface FilterItem {
-    id: string,
+    id: 'networks' | 'benefits' | 'issuers',
     name: string,
     count: number,
     options: Array<NetworkSelector> | Array<BenefitSelector> | Array<IssuerSelector>

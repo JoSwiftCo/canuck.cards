@@ -1,14 +1,20 @@
-import { createContext, JSXElementConstructor, ReactElement, ReactFragment, ReactPortal, useState } from "react";
+import { createContext, JSXElementConstructor, ReactElement, ReactFragment, ReactPortal, useContext, useEffect, useState } from "react";
 import { Networks } from '../../references/networks/networks'
 import { Benefits } from '../../references/benefits/benefits'
 import { Issuers } from '../../references/issuers/issuers'
 import { BenefitSelector, FilterItem, IssuerSelector, NetworkSelector } from './SearchSection.type';
+import { Card } from "../../references/Cards/card.model";
+import { AllCardsContext } from "../../pages";
+import { BenefitCode } from "../../references/benefits/benefit.model";
+import { NetworkCode } from "../../references/networks/network.model";
+import { IssueCodeName } from "../../references/issuers/issuer.model";
 
 export const SearchSectionFilterContext = createContext({
     filters: [],
     updateFilterOptions: (sectionIndex:number, optionIndex: number) => {},
     sortOptions: [],
-    updateSortOptions: (_options) => {}
+    updateSortOptions: (_options) => {},
+    filteredCards: []
 });
 
 const defaultSortOptions = [
@@ -65,7 +71,9 @@ const defaultFilters: Array<FilterItem> = [
 ]
 
 const SearchSectionFilterContextProvider = (props: { children: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal; }) => {
+    const allCards = useContext<Card[]>(AllCardsContext);
     const [filters, setFilters] = useState<FilterItem[]>(defaultFilters);
+    const [filteredCards, setFilteredCards] = useState<Card[]>([]);
     const updateFilterOptions = (sectionIndex:number, optionIndex: number) => {
         const target:Boolean = !filters[sectionIndex].options[optionIndex].checked;
         const count:number = target ? 1 : -1;
@@ -77,8 +85,43 @@ const SearchSectionFilterContextProvider = (props: { children: string | number |
     const updateSortOptions = (_options) => {
         setSortOptions(_options);
     }
+
+    const updateFilteredCard = () => {
+        let results:Card[] = [];
+        const selectedSections:FilterItem[] = filters.filter(item => item.count);
+        for (let i = 0; i < selectedSections.length; i++) {
+            const section:FilterItem = selectedSections[i];
+            let cardsFound:Card[] = [];
+            if (section.id === 'benefits') {
+                const benefitCodes:BenefitCode[] = section.options
+                    .filter((item:BenefitSelector) => item.checked)
+                    .map((item:BenefitSelector) => item.codeName);
+                cardsFound = allCards.filter((card:Card) => benefitCodes.every((code:BenefitCode) => card.benefits.includes(code)));
+                
+            }
+            else if (section.id === 'networks') {
+                const networkCodes:NetworkCode[] = section.options
+                    .filter((item:NetworkSelector) => item.checked)
+                    .map((item:NetworkSelector) => item.codeName);
+                cardsFound = allCards.filter((card:Card) => networkCodes.includes(card.network));
+            }
+            else {
+                const issuerCodes:IssueCodeName[] = section.options
+                    .filter((item:IssuerSelector) => item.checked)
+                    .map((item:IssuerSelector) => item.codeName);
+                cardsFound = allCards.filter((card:Card) => issuerCodes.includes(card.issuer));
+            }
+            results = results.concat(cardsFound);
+        }
+        console.log(results);
+        setFilteredCards(results);
+    }
+
+    useEffect(() => {
+        updateFilteredCard();
+    }, [filters]);
     return (
-        <SearchSectionFilterContext.Provider value={{filters, updateFilterOptions, sortOptions, updateSortOptions}}>
+        <SearchSectionFilterContext.Provider value={{filters, updateFilterOptions, sortOptions, updateSortOptions, filteredCards}}>
             {props.children}
         </SearchSectionFilterContext.Provider>
     )

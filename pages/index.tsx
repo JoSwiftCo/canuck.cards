@@ -1,4 +1,3 @@
-import styles from '../styles/Home.module.css'
 import path from "path";
 import fs from "fs";
 import { createContext, useState } from 'react';
@@ -7,11 +6,11 @@ import Header from '../components/Header/Header';
 import SearchSection from '../components/SearchSection/SearchSection';
 import SearchSectionFilterContextProvider from '../components/SearchSection/SearchSectionFilterContext';
 
-const AllCardsContext = createContext([]);
+export const AllCardsContext = createContext([]);
 
 const Home = ({ data }) => {
   console.log(data);
-  const [allCards] = useState<Array<Card>>(data);
+  const [allCards] = useState<Card[]>(data);
   return (
     <AllCardsContext.Provider value={allCards}>
       <Header></Header>

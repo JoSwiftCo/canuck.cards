@@ -10,6 +10,8 @@
     "spendingInterest": null,
     "annualFee": 0,
     "monthlyFee": 0,
+    "signUpFee": 0,
+    "topUpFee": 0,
     "spendingCurrency": "cad",
     "thumbnail": "wealthsimple_prepaid_visa",
     "officialLink": "https://help.wealthsimple.com/hc/en-ca/articles/1500012888001",

@@ -57,6 +57,8 @@ export interface Card {
     spendingInterest: SpendingInterest | null,
     annualFee: number,
     monthlyFee: number,
+    signUpFee: number,
+    topUpFee: number,
     spendingCurrency: SpendingCurrency,
     officialLink: string, // Link to the official website of the issuer of this card
     referralLink: string,

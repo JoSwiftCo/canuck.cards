@@ -10,6 +10,8 @@
     "spendingInterest": null,
     "annualFee": 0,
     "monthlyFee": 0,
+    "signUpFee": 0,
+    "topUpFee": 0,
     "spendingCurrency": "cad",
     "officialLink": "https://www.getstack.ca/features",
     "referralLink": "https://getstackco.app.link/D9a7b3s03pb",

@@ -17,4 +17,5 @@ export type BenefitCode =
     'wifi' |
     'insurance' |
     'hotel' |
-    'usd'
+    'usd' |
+    'metal'

@@ -1,0 +1,31 @@
+{
+    "codeName": "stackfinancial_prepaid_mastercard",
+    "displayName": "STACK Financial Prepaid Mastercard",
+    "description": "Instant cash back at over 140 retailers",
+    "type": "prepaid",
+    "network": "visa",
+    "promo": "",
+    "issuer": "stackfinancial",
+    "cashAdvanceInterest": null,
+    "spendingInterest": null,
+    "annualFee": 0,
+    "monthlyFee": 0,
+    "spendingCurrency": "cad",
+    "officialLink": "https://www.getstack.ca/features",
+    "referralLink": "https://getstackco.app.link/D9a7b3s03pb",
+    "referralCode": "D9a7b3s03pb",
+    "rewardProgramCode": null,
+    "additionalCard": null,
+    "benefits": [
+        "cashback",
+        "free",
+        "usd",
+        "merchandise",
+        "fxspending"
+    ],
+    "notes": [
+        "You need to make an account at STACK in order to get a card. Support us by using the referral link! ($5 sign-up bonus)",
+        "The FX fees are refunded when you make a minimum of $350 CAD in purchases per month",
+        "STACK has its own in-app offers (just like Amex) where you can get relatively high cash back/reward rates"
+    ]
+}

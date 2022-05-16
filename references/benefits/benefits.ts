@@ -56,5 +56,9 @@ export const Benefits:Array<Benefit> = [
     {
         displayName: 'USD Spending',
         code: 'usd'
+    },
+    {
+        displayName: 'Metal card',
+        code: 'metal'
     }
 ];

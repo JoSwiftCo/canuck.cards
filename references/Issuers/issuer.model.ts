@@ -18,6 +18,7 @@ export type IssueCodeName =
     'hometrust' |
     'cicici' |
     'invis' |
+    'koho' |
     'laurential' |
     'manulife' |
     'nationalbank' |

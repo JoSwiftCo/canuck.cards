@@ -1,0 +1,29 @@
+{
+    "codeName": "koho_premium_prepaid_visa",
+    "displayName": "KOHO Premium Prepaid Visa Card",
+    "description": "Start getting 2% cash back on groceries, restaurants, transit, and gas & 0.5% cash back on all other purchases",
+    "type": "prepaid",
+    "network": "visa",
+    "promo": "",
+    "issuer": "koho",
+    "cashAdvanceInterest": null,
+    "spendingInterest": null,
+    "monthlyFee": 9,
+    "annualFee": 84,
+    "spendingCurrency": "cad",
+    "officialLink": "https://www.koho.ca/premium",
+    "referralLink": "https://web.koho.ca/referral/GB65VYBN",
+    "referralCode": "GB65VYBN",
+    "rewardProgramCode": null,
+    "additionalCard": null,
+    "benefits": [
+        "cashback",
+        "usd",
+        "fxspending"
+    ],
+    "notes": [
+        "You need to make an account at KOHO in order to get a card. Support us by using the referral link!",
+        "Earn 2% instant cash back on the 3 categories your wallet cares about. Get 0.5% cash back on everything else",
+        "KOHO has a Credit Building feature for $7/month"
+    ]
+}

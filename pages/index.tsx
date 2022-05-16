@@ -4,8 +4,8 @@ import fs from "fs";
 import { createContext, useState } from 'react';
 import { Card } from '../references/Cards/card.model';
 import Header from '../components/Header/Header';
-import { SearchContextProvider } from '../components/SearchContext/SearchContext';
 import SearchSection from '../components/SearchSection/SearchSection';
+import SearchSectionFilterContextProvider from '../components/SearchSection/SearchSectionFilterContext';
 
 const AllCardsContext = createContext([]);
 
@@ -15,12 +15,11 @@ const Home = ({ data }) => {
   return (
     <AllCardsContext.Provider value={allCards}>
       <Header></Header>
-      <SearchContextProvider>
+      <SearchSectionFilterContextProvider>
         <SearchSection></SearchSection>
-        <div>
-        </div>
-      </SearchContextProvider>
-
+      </SearchSectionFilterContextProvider>
+      <div>
+      </div>
     </AllCardsContext.Provider>
   );
 }

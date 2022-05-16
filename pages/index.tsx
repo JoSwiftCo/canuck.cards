@@ -4,6 +4,8 @@ import fs from "fs";
 import { createContext, useState } from 'react';
 import { Card } from '../references/Cards/card.model';
 import CardImage from '../components/CreditCardImage/CardImage';
+import Header from '../components/Header/Header';
+import { SearchContextProvider } from '../components/SearchContext/SearchContext';
 
 const AllCardsContext = createContext([]);
 
@@ -12,16 +14,20 @@ const Home = ({ data }) => {
   const [allCards] = useState<Array<Card>>(data);
   return (
     <AllCardsContext.Provider value={allCards}>
-      <div>
-        {
-          allCards.map(card => (
-            <CardImage 
-              key={card.codeName}
-              issuerCode={card.issuer}
-              imageUrl={card.codeName}></CardImage>
-          ))
-        }
-      </div>
+      <Header></Header>
+      <SearchContextProvider>
+        <div>
+          {
+            allCards.map(card => (
+              <CardImage
+                key={card.codeName}
+                issuerCode={card.issuer}
+                imageUrl={card.codeName}></CardImage>
+            ))
+          }
+        </div>
+      </SearchContextProvider>
+
     </AllCardsContext.Provider>
   );
 }

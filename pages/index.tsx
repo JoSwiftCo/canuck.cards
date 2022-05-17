@@ -8,9 +8,12 @@ import SearchSectionFilterContextProvider from '../components/SearchSection/Sear
 
 export const AllCardsContext = createContext([]);
 
-const Home = ({ data }) => {
-  console.log(data);
+const Home = ({ data, imageUrls }) => {
   const [allCards] = useState<Card[]>(data);
+  if (imageUrls.length) {
+    for (let i = 0; i < imageUrls.length; i++)
+      fetch(imageUrls[i]);
+  }
   return (
     <AllCardsContext.Provider value={allCards}>
       <Header></Header>
@@ -28,13 +31,15 @@ const getStaticProps = async () => {
   const parentDirectory: string = path.join(__dirname, basePath);
   const issuerFolderNames: string[] = fs.readdirSync(parentDirectory);
   let allCardsMetadata: string[] = [];
-
+  let imageUrls:string[] = [];
   issuerFolderNames.forEach(issuerName => {
     const issuerDirectory: string = `${parentDirectory}/${issuerName}`;
     const cardFolderNames: string[] = fs.readdirSync(issuerDirectory);
     cardFolderNames.forEach((cardName: string) => {
       const cardJsonDirectory: string = `${issuerDirectory}/${cardName}`;
       const cardFolderFiles: string[] = fs.readdirSync(cardJsonDirectory);
+      const imageFileName:string = cardFolderFiles.find(name => name.endsWith('.webp'));
+      if (imageFileName && !imageUrls.includes(imageFileName)) imageUrls.push(`/api/thumbnails/${issuerName}/${cardName}`);
       const jsonFileName: string = cardFolderFiles.find(name => name.endsWith('.json'));
       if (!jsonFileName) return;
       const jsonFullPath: string = `${cardJsonDirectory}/${jsonFileName}`;
@@ -43,7 +48,7 @@ const getStaticProps = async () => {
       allCardsMetadata.push(jsonData);
     });
   });
-  return { props: { data: allCardsMetadata } };
+  return { props: { data: allCardsMetadata, imageUrls: imageUrls } };
 }
 
 export { getStaticProps }

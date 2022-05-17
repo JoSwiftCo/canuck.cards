@@ -106,7 +106,7 @@ const Header = () => {
                         <Popover className="relative">
                             {({ open }) => (
                                 <>
-                                    <Popover.Button
+                                    {/* <Popover.Button
                                         className={mergeTailwindClass(
                                             open ? 'text-gray-900' : 'text-gray-500',
                                             'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
@@ -120,7 +120,7 @@ const Header = () => {
                                             )}
                                             aria-hidden="true"
                                         />
-                                    </Popover.Button>
+                                    </Popover.Button> */}
 
                                     <Transition
                                         as={Fragment}
@@ -167,18 +167,18 @@ const Header = () => {
                                 </>
                             )}
                         </Popover>
-
+{/* 
                         <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
                             Pricing
                         </a>
                         <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
                             Docs
-                        </a>
+                        </a> */}
 
                         <Popover className="relative">
                             {({ open }) => (
                                 <>
-                                    <Popover.Button
+                                    {/* <Popover.Button
                                         className={mergeTailwindClass(
                                             open ? 'text-gray-900' : 'text-gray-500',
                                             'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
@@ -192,7 +192,7 @@ const Header = () => {
                                             )}
                                             aria-hidden="true"
                                         />
-                                    </Popover.Button>
+                                    </Popover.Button> */}
 
                                     <Transition
                                         as={Fragment}

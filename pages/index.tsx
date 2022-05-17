@@ -10,10 +10,10 @@ export const AllCardsContext = createContext([]);
 
 const Home = ({ data, imageUrls }) => {
   const [allCards] = useState<Card[]>(data);
-  if (imageUrls.length) {
-    for (let i = 0; i < imageUrls.length; i++)
-      fetch(imageUrls[i]);
-  }
+  // if (imageUrls.length) {
+  //   for (let i = 0; i < imageUrls.length; i++)
+  //     fetch(imageUrls[i]);
+  // }
   return (
     <AllCardsContext.Provider value={allCards}>
       <Header></Header>

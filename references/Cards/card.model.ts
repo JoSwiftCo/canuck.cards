@@ -34,7 +34,26 @@ interface AdditionalCard {
     monthlyFee: number
 }
 
-type CardType = 'credit' | 'charge' | 'prepaid';
+export type CardTypeCode = 'credit' | 'charge' | 'prepaid';
+
+export interface CardType {
+    displayName: string,
+    codeName: CardTypeCode
+}
+export const CardTypes:CardType[] = [
+    {
+        displayName: 'Credit Card',
+        codeName: 'credit'
+    },
+    {
+        displayName: 'Prepaid Card',
+        codeName: 'prepaid'
+    },
+    {
+        displayName: 'Charge Card',
+        codeName: 'charge'
+    }
+]
 
 /**
  * Rules for codeName:
@@ -49,7 +68,7 @@ export interface Card {
     codeName: string, // Unique identifier to be used for the image thumbnail
     displayName: string,
     description: string,
-    type: CardType,
+    type: CardTypeCode,
     network: NetworkCode,
     promo: string,
     issuer: IssueCodeName,

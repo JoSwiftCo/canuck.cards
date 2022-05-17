@@ -15,10 +15,5 @@ export const Networks:Array<Network> = [
         displayName: 'Visa',
         codeName: 'visa',
         availableInCanada: true
-    },
-    {
-        displayName: 'Discovery',
-        codeName: 'discovery',
-        availableInCanada: false
     }
 ];

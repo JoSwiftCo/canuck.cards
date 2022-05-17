@@ -17,6 +17,7 @@ import {
 } from '@heroicons/react/outline';
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import { mergeTailwindClass } from '../../utils/tailwindClass';
+import Image from 'next/image';
 const solutions = [
     {
         name: 'Analytics',
@@ -89,7 +90,9 @@ const Header = () => {
                     <div className="flex justify-start lg:w-0 lg:flex-1">
                         <a href="#">
                             <span className="sr-only">Workflow</span>
-                            <img
+                            <Image
+                                width={8}
+                                height={8}
                                 className="h-8 w-auto sm:h-10"
                                 src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
                                 alt=""
@@ -266,7 +269,9 @@ const Header = () => {
                         <div className="pt-5 pb-6 px-5">
                             <div className="flex items-center justify-between">
                                 <div>
-                                    <img
+                                    <Image
+                                        width={8}
+                                        height={8}
                                         className="h-8 w-auto"
                                         src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
                                         alt="Workflow"

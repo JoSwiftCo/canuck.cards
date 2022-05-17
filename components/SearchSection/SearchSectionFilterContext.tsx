@@ -87,31 +87,41 @@ const SearchSectionFilterContextProvider = (props: { children: string | number |
     }
 
     const updateFilteredCard = () => {
+        if (filters.every((item:FilterItem) => item.count === 0)) {
+            setFilteredCards([]);
+            return;
+        }
         let results:Card[] = [];
-        const selectedSections:FilterItem[] = filters.filter(item => item.count);
-        for (let i = 0; i < selectedSections.length; i++) {
-            const section:FilterItem = selectedSections[i];
-            let cardsFound:Card[] = [];
-            if (section.id === 'benefits') {
-                const benefitCodes:BenefitCode[] = section.options
-                    .filter((item:BenefitSelector) => item.checked)
-                    .map((item:BenefitSelector) => item.codeName);
-                cardsFound = allCards.filter((card:Card) => benefitCodes.every((code:BenefitCode) => card.benefits.includes(code)));
-                
-            }
-            else if (section.id === 'networks') {
-                const networkCodes:NetworkCode[] = section.options
-                    .filter((item:NetworkSelector) => item.checked)
-                    .map((item:NetworkSelector) => item.codeName);
-                cardsFound = allCards.filter((card:Card) => networkCodes.includes(card.network));
-            }
-            else {
-                const issuerCodes:IssueCodeName[] = section.options
-                    .filter((item:IssuerSelector) => item.checked)
-                    .map((item:IssuerSelector) => item.codeName);
-                cardsFound = allCards.filter((card:Card) => issuerCodes.includes(card.issuer));
-            }
-            results = results.concat(cardsFound);
+
+        const benefitSectionIndex:number = filters.findIndex((item:FilterItem) => item.id === 'benefits');
+        const networkSectionIndex:number = filters.findIndex((item:FilterItem) => item.id === 'networks');
+        const issuerSectionIndex:number = filters.findIndex((item:FilterItem) => item.id === 'issuers');
+
+        const benefitsCount:number = filters[benefitSectionIndex].count;
+        const networksCount:number = filters[networkSectionIndex].count;
+        const issuersCount:number = filters[issuerSectionIndex].count;
+
+        const selectedBenefits:Array<BenefitCode> = filters[benefitSectionIndex].options
+            .filter((item:BenefitSelector) => item.checked)
+            .map((item:BenefitSelector) => item.codeName);
+        const selectedNetworks:Array<NetworkCode> = filters[networkSectionIndex].options
+            .filter((item:NetworkSelector) => item.checked)
+            .map((item:NetworkSelector) => item.codeName);
+        const selectedIssuers:Array<IssueCodeName> = filters[networkSectionIndex].options
+            .filter((item:IssuerSelector) => item.checked)
+            .map((item:IssuerSelector) => item.codeName);
+
+        if (networksCount && issuersCount) {
+            results = allCards.filter((card:Card) => selectedNetworks.includes(card.network) && selectedIssuers.includes(card.issuer));
+        }
+        else {
+            if (networksCount) results = allCards.filter((card:Card) => selectedNetworks.includes(card.network));
+            if (issuersCount) results = allCards.filter((card:Card) => selectedIssuers.includes(card.issuer));
+        }
+
+        if (benefitsCount) {
+            const temp:Card[] = results.length ? results : allCards;
+            results = temp.filter((card: Card) => selectedBenefits.every((benefit:BenefitCode) => card.benefits.includes(benefit)));
         }
         console.log(results);
         setFilteredCards(results);

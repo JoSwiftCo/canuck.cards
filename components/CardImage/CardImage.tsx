@@ -1,5 +1,10 @@
 import Image from 'next/image';
-import { CardImageProps } from './CardImage.model';
+import { IssueCodeName } from '../../classes/issuer.model';
+
+export interface CardImageProps {
+    imageUrl: string,
+    issuerCode: IssueCodeName
+}
 
 const CardImage = (props: CardImageProps) => {
     const { imageUrl, issuerCode } = props;

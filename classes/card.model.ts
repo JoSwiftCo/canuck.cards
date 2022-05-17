@@ -1,8 +1,7 @@
-import { BenefitCode } from "../benefits/benefit.model";
-import { IssueCodeName } from "../issuers/issuers";
-import { NetworkCode } from "../networks/network.model";
-import { RewardProgramCodeName } from "../reward_programs/reward_program.model";
-
+import { BenefitCode } from "./benefit.model";
+import { IssueCodeName } from "./issuer.model";
+import { NetworkCode } from "./network.model";
+import { RewardProgramCodeName } from "./reward.model";
 
 
 /**

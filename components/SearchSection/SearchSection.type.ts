@@ -1,7 +1,7 @@
-import { Benefit } from "../../references/benefits/benefit.model"
-import { CardType } from "../../references/cards/card.model"
-import { Issuer } from "../../references/issuers/issuers"
-import { Network } from "../../references/networks/network.model"
+import { Benefit } from "../../classes/benefit.model"
+import { CardType } from "../../classes/card.model"
+import { Issuer } from "../../classes/issuer.model"
+import { Network } from "../../classes/network.model"
 
 export interface FilterItem {
     id: 'networks' | 'benefits' | 'issuers' | 'cardtypes',

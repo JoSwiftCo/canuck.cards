@@ -2,10 +2,17 @@ import { Disclosure } from "@headlessui/react";
 import { MinusSmIcon, PlusSmIcon } from "@heroicons/react/outline";
 import { useContext } from "react";
 import { SearchSectionFilterContext } from "../SearchSection/SearchSectionFilterContext";
-import { FilterSectionsProps } from "./FilterSections.type";
 
-const FilterSections = (props: FilterSectionsProps) => {
-    
+export interface FilterSectionsProps {
+    disclosureClasses: string,
+    disclosureH3Classes: string,
+    disclosureButtonClasses: string,
+    disclosurePanelDiv: string,
+    isMobile: Boolean,
+    labelClasses: string
+}
+
+const FilterSections = (props: FilterSectionsProps) => {    
     const {
         disclosureClasses,
         disclosureH3Classes,

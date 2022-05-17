@@ -7,11 +7,12 @@ import { mergeTailwindClass } from '../../utils/tailwindClass'
 import SearchSectionMobileView from './SearchSectionMobileView'
 import { SearchSectionFilterContext } from './SearchSectionFilterContext'
 import FilterSections from '../FilterSections/FilterSections'
+import FilteredCardsContainer from '../FilteredCardsContainer/FilteredCardsContainer'
 
 
 const SearchSection = () => {
     const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-    const { filters, updateFilterOptions, sortOptions, updateSortOptions } = useContext(SearchSectionFilterContext);
+    const { filters, updateFilterOptions, sortOptions, updateSortOptions, filteredCards } = useContext(SearchSectionFilterContext);
     return (
         <div className="bg-white">
             {/* Mobile filter dialog */}
@@ -99,7 +100,11 @@ const SearchSection = () => {
                         {/* Product grid */}
                         <div className="lg:col-span-3">
                             {/* Replace with your content */}
-                            <div className="border-4 border-dashed border-gray-200 rounded-lg h-96 lg:h-full" />
+                            <div className="lg:h-[70vh] sm:h-full flex flex-col w-full overflow-y-auto">
+                                <FilteredCardsContainer
+                                    filteredCards={filteredCards}
+                                ></FilteredCardsContainer>
+                            </div>
                             {/* /End replace */}
                         </div>
                     </div>

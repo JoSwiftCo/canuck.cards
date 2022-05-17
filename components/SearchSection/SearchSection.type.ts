@@ -7,21 +7,17 @@ export interface FilterItem {
     id: 'networks' | 'benefits' | 'issuers' | 'cardtypes',
     name: string,
     count: number,
-    options: NetworkSelector[] | BenefitSelector[] | IssuerSelector[] | CardTypeSelector[]
+    options: any[]
 }
 
-export interface NetworkSelector extends Network {
+export interface Selector {
     checked: Boolean
 }
 
-export interface BenefitSelector extends Benefit {
-    checked: Boolean
-}
+export interface NetworkSelector extends Network, Selector {}
 
-export interface IssuerSelector extends Issuer {
-    checked: Boolean
-}
+export interface BenefitSelector extends Benefit, Selector {}
 
-export interface CardTypeSelector extends CardType {
-    checked: Boolean
-}
+export interface IssuerSelector extends Issuer, Selector {}
+
+export interface CardTypeSelector extends CardType, Selector {}

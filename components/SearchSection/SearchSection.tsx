@@ -12,9 +12,9 @@ import FilteredCardsContainer from '../FilteredCardsContainer/FilteredCardsConta
 
 const SearchSection = () => {
     const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-    const { filters, updateFilterOptions, sortOptions, updateSortOptions, filteredCards } = useContext(SearchSectionFilterContext);
+    const { updateFilterOptions, sortOptions, updateSortOptions, filteredCards } = useContext(SearchSectionFilterContext);
     return (
-        <div className="bg-white">
+        <>
             {/* Mobile filter dialog */}
             <SearchSectionMobileView
                 mobileFiltersOpen={mobileFiltersOpen}
@@ -109,7 +109,7 @@ const SearchSection = () => {
                     </div>
                 </section>
             </main>
-        </div>
+        </>
     )
 }
 

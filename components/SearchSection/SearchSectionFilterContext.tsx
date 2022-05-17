@@ -5,7 +5,7 @@ import { Issuers } from '../../references/issuers/issuers'
 import { BenefitSelector, CardTypeSelector, FilterItem, IssuerSelector, NetworkSelector } from './SearchSection.type';
 import { Card, CardTypes, CardTypeCode } from "../../references/Cards/card.model";
 import { AllCardsContext } from "../../pages";
-import { BenefitCode } from "../../references/benefits/benefit.model";
+import { Benefit, BenefitCode } from "../../references/benefits/benefit.model";
 import { NetworkCode } from "../../references/networks/network.model";
 import { IssueCodeName } from "../../references/issuers/issuer.model";
 

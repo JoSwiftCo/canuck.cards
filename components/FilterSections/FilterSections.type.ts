@@ -1,5 +1,3 @@
-import { FilterItem } from "../SearchSection/SearchSection.type";
-
 export interface FilterSectionsProps {
     disclosureClasses: string,
     disclosureH3Classes: string,

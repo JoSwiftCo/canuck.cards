@@ -26,7 +26,12 @@ interface SpendingInterest {
 /**
  * Some cards were designed to USD spending, not CAD. Ex: Scotiabank ® U.S. Dollar VISA* Card
  */
-type SpendingCurrency = 'cad' | 'usd';
+type SpendingCurrency = {
+    symbol: CurrencySymbol,
+    name: CurrencyName
+}
+type CurrencySymbol = '$'
+type CurrencyName = 'cad' | 'usd';
 
 interface AdditionalCard {
     available: Boolean,
@@ -59,7 +64,8 @@ export const CardTypes:CardType[] = [
  * Rules for codeName:
  * 1. Do not include the words "card" at the end of the name
  * 2. All lowercase, separated by "_"
- * 3. Follow this format: <issuer_code>_<card_name>
+ * 3. Follow this format: <issuer_code>_<card_name>_<card_type>_<network>
+ * Note: For American Express we don't have to include amex at the end of the codeName (they own their own payment network)
  * Examples:
  * Incorrect: Amex_Cobalt | amexCobalt | amex_cobalt_card | amexcobalt
  * Correct: amex_cobalt
@@ -78,6 +84,7 @@ export interface Card {
     monthlyFee: number,
     signUpFee: number,
     topUpFee: number,
+    currencySymbol: string,
     spendingCurrency: SpendingCurrency,
     officialLink: string, // Link to the official website of the issuer of this card
     referralLink: string,

@@ -5,7 +5,6 @@ import { SearchSectionFilterContext } from './SearchSectionFilterContext'
 import FilterSections from '../FilterSections/FilterSections'
 
 const SearchSectionMobileView = ({ mobileFiltersOpen, setMobileFiltersOpen }) => {
-    const { filters, updateFilterOptions, sortOptions, updateSortOptions } = useContext(SearchSectionFilterContext);
     return (
         <Transition.Root show={mobileFiltersOpen} as={Fragment}>
             <Dialog as="div" className="relative z-40 lg:hidden" onClose={setMobileFiltersOpen}>

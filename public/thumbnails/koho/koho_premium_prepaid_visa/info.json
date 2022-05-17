@@ -12,7 +12,10 @@
     "annualFee": 84,
     "signUpFee": 0,
     "topUpFee": 0,
-    "spendingCurrency": "cad",
+    "spendingCurrency": {
+        "name": "cad",
+        "symbol": "$"
+    },
     "officialLink": "https://www.koho.ca/premium",
     "referralLink": "https://web.koho.ca/referral/GB65VYBN",
     "referralCode": "GB65VYBN",

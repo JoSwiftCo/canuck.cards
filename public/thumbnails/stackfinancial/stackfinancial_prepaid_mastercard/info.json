@@ -3,7 +3,7 @@
     "displayName": "STACK Financial Prepaid Mastercard",
     "description": "Instant cash back at over 140 retailers",
     "type": "prepaid",
-    "network": "visa",
+    "network": "mastercard",
     "promo": "",
     "issuer": "stackfinancial",
     "cashAdvanceInterest": null,
@@ -12,7 +12,10 @@
     "monthlyFee": 0,
     "signUpFee": 0,
     "topUpFee": 0,
-    "spendingCurrency": "cad",
+    "spendingCurrency": {
+        "name": "cad",
+        "symbol": "$"
+    },
     "officialLink": "https://www.getstack.ca/features",
     "referralLink": "https://getstackco.app.link/D9a7b3s03pb",
     "referralCode": "D9a7b3s03pb",

@@ -6,6 +6,7 @@ const CardImage = (props: CardImageProps) => {
     return (
         <Image
             alt={imageUrl}
+            className="h-[122px] w-[200px]"
             src={`/api/thumbnails/${issuerCode}/${imageUrl}`}
             width={200}
             height={122}

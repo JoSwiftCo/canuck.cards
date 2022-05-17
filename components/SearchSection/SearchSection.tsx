@@ -22,7 +22,7 @@ const SearchSection = () => {
             ></SearchSectionMobileView>
 
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="relative z-10 flex items-baseline justify-between pt-6 pb-6">
+                <div className="relative z-10 flex items-baseline justify-between pt-3 pb-3">
                     <h1 className="text-3xl tracking-tight text-gray-900">Browse cards</h1>
                     <div className="flex items-center">
                         <Menu as="div" className="relative inline-block text-left">
@@ -83,7 +83,7 @@ const SearchSection = () => {
                     </div>
                 </div>
 
-                <section aria-labelledby="products-heading" className="pt-6 pb-24">
+                <section aria-labelledby="products-heading" className="pt-0 pb-4">
                     <div className="grid grid-cols-1 lg:grid-cols-4 gap-x-8 gap-y-10">
                         {/* Filters */}
                         <div className="hidden lg:block h-[600px] overflow-y-auto">

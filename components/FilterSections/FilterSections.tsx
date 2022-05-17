@@ -24,9 +24,12 @@ const FilterSections = (props: FilterSectionsProps) => {
                             <Disclosure.Button className={disclosureButtonClasses}>
                                 <span className="font-medium text-gray-900">
                                     {section.name}
-                                    <span className="ml-1 inline-flex items-center justify-center px-2 py-1 mr-2 text-xs leading-none text-red-100 bg-red-600 rounded-full">
-                                        {section.count}
-                                    </span>
+                                    {
+                                        section.count <= 0 ? <></> :
+                                        <span className="ml-1 inline-flex items-center justify-center px-2 py-1 mr-2 text-xs leading-none text-red-100 bg-indigo-600 rounded-full">
+                                            {section.count}
+                                        </span>
+                                    }
                                 </span>
                                 <span className="ml-6 flex items-center">
                                     {open ? (

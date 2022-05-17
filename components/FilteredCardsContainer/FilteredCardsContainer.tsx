@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Card } from "../../references/Cards/card.model";
 import CardImage from "../CardImage/CardImage";
 
@@ -8,7 +7,7 @@ const FilteredCardsContainer = ({filteredCards}) => {
             {
                 filteredCards.map((card:Card) => (
                     <a href="#" key={card.codeName} 
-                        className="px-3 my-5 ml-auto mr-auto flex flex-col items-center bg-white rounded-lg border md:flex-row md:max-w-xl hover:bg-lightgray-100 dark:hover:bg-gray-700">
+                        className="px-3 py-3 my-5 ml-auto mr-auto flex flex-col items-center bg-white rounded-lg border-2 md:flex-row md:max-w-xl">
                         <CardImage
                             imageUrl={card.codeName}
                             issuerCode={card.issuer}

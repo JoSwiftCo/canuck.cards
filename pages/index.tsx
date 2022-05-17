@@ -1,7 +1,7 @@
 import path from "path";
 import fs from "fs";
 import { createContext, useState } from 'react';
-import { Card } from '../references/Cards/card.model';
+import { Card } from '../references/cards/card.model';
 import Header from '../components/Header/Header';
 import SearchSection from '../components/SearchSection/SearchSection';
 import SearchSectionFilterContextProvider from '../components/SearchSection/SearchSectionFilterContext';

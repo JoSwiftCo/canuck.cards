@@ -1,6 +1,6 @@
 import { Benefit, BenefitCode } from "../../references/benefits/benefit.model";
 import { Benefits } from "../../references/benefits/benefits";
-import { Card } from "../../references/Cards/card.model";
+import { Card } from "../../references/cards/card.model";
 import CardImage from "../CardImage/CardImage";
 
 interface CardBenefitBadgeProps {

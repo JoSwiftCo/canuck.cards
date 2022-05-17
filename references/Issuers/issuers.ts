@@ -1,4 +1,4 @@
-import { Issuer } from "./issuer.model";
+import { Issuer } from "./issuers.model";
 
 export const Issuers:Array<Issuer> = [
     {

@@ -1,4 +1,4 @@
-import { IssueCodeName } from "../../references/issuers/issuer.model";
+import { IssueCodeName } from "../../references/issuers/issuers.model";
 
 export interface CardImageProps {
     imageUrl: string,

@@ -1,5 +1,5 @@
 import { BenefitCode } from "../benefits/benefit.model";
-import { IssueCodeName } from "../issuers/issuers.model";
+import { IssueCodeName } from "../issuers/issuer.model";
 import { NetworkCode } from "../networks/network.model";
 import { RewardProgramCodeName } from "../reward_programs/reward_program.model";
 

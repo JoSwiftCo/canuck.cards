@@ -5,9 +5,9 @@ import { Issuers } from '../../references/issuers/issuers'
 import { BenefitSelector, CardTypeSelector, FilterItem, IssuerSelector, NetworkSelector } from './SearchSection.type';
 import { Card, CardTypes, CardTypeCode } from "../../references/cards/card.model";
 import { AllCardsContext } from "../../pages";
-import { Benefit, BenefitCode } from "../../references/benefits/benefit.model";
+import { BenefitCode } from "../../references/benefits/benefit.model";
 import { NetworkCode } from "../../references/networks/network.model";
-import { IssueCodeName } from "../../references/issuers/issuers.model";
+import { IssueCodeName } from "../../references/issuers/issuer.model";
 
 export const SearchSectionFilterContext = createContext({
     filters: [],

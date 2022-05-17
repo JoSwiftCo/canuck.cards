@@ -1,13 +1,12 @@
 import { createContext, JSXElementConstructor, ReactElement, ReactFragment, ReactPortal, useContext, useEffect, useState } from "react";
 import { Networks } from '../../references/networks/networks'
 import { Benefits } from '../../references/benefits/benefits'
-import { Issuers } from '../../references/issuers/issuers'
+import { IssueCodeName, Issuers } from '../../references/issuers/issuers'
 import { BenefitSelector, CardTypeSelector, FilterItem, IssuerSelector, NetworkSelector } from './SearchSection.type';
 import { Card, CardTypes, CardTypeCode } from "../../references/cards/card.model";
 import { AllCardsContext } from "../../pages";
 import { BenefitCode } from "../../references/benefits/benefit.model";
 import { NetworkCode } from "../../references/networks/network.model";
-import { IssueCodeName } from "../../references/issuers/issuer.model";
 
 export const SearchSectionFilterContext = createContext({
     filters: [],

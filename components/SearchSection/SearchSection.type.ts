@@ -1,6 +1,6 @@
 import { Benefit } from "../../references/benefits/benefit.model"
 import { CardType } from "../../references/cards/card.model"
-import { Issuer } from "../../references/issuers/issuer.model"
+import { Issuer } from "../../references/issuers/issuers"
 import { Network } from "../../references/networks/network.model"
 
 export interface FilterItem {

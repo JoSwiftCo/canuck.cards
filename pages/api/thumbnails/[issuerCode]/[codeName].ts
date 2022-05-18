@@ -4,10 +4,12 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 const handler = (req: NextApiRequest, res: NextApiResponse<Buffer>) => {
   const { issuerCode, codeName } = req.query;
+
   let filePath = path.join(
     __dirname, 
     `../../../../../../public/thumbnails/${issuerCode}/${codeName}/${codeName}.webp`
   );
+  filePath = path.join(process.cwd(), `public/thumbnails/${issuerCode}/${codeName}/${codeName}.webp`);
   if (!fs.existsSync(filePath)) {
     filePath = path.join(__dirname, '../../../../../../public/blank_card.webp');
   }

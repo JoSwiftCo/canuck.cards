@@ -1,8 +1,7 @@
 import { Fragment, useContext } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
-import { SearchSectionFilterContext } from './SearchSectionFilterContext'
-import FilterSections from '../FilterSections/FilterSections'
+import FilterSections from '../FilterSections'
 
 const SearchSectionMobileView = ({ mobileFiltersOpen, setMobileFiltersOpen }) => {
     return (

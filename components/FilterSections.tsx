@@ -1,7 +1,7 @@
 import { Disclosure } from "@headlessui/react";
 import { MinusSmIcon, PlusSmIcon } from "@heroicons/react/outline";
 import { useContext } from "react";
-import { SearchSectionFilterContext } from "../SearchSection/SearchSectionFilterContext";
+import { SearchSectionFilterContext } from "./SearchSection/SearchSectionFilterContext";
 
 export interface FilterSectionsProps {
     disclosureClasses: string,

@@ -1,10 +1,28 @@
 import { createContext, JSXElementConstructor, ReactElement, ReactFragment, ReactPortal, useContext, useEffect, useState } from "react";
-import { BenefitCode, Benefits } from '../../classes/benefit.model'
-import { IssueCodeName, Issuers } from '../../classes/issuer.model'
-import { BenefitSelector, CardTypeSelector, FilterItem, IssuerSelector, NetworkSelector } from './SearchSection.type';
-import { Card, CardTypes, CardTypeCode } from "../../classes/card.model";
+import { Benefit, BenefitCode, Benefits } from '../../classes/benefit.model'
+import { IssueCodeName, Issuer, Issuers } from '../../classes/issuer.model'
+import { Card, CardTypes, CardTypeCode, CardType } from "../../classes/card.model";
 import { AllCardsContext } from "../../pages";
-import { NetworkCode, Networks } from "../../classes/network.model";
+import { Network, NetworkCode, Networks } from "../../classes/network.model";
+
+export interface FilterItem {
+    id: 'networks' | 'benefits' | 'issuers' | 'cardtypes',
+    name: string,
+    count: number,
+    options: any[]
+}
+
+export interface Selector {
+    checked: Boolean
+}
+
+export interface NetworkSelector extends Network, Selector {}
+
+export interface BenefitSelector extends Benefit, Selector {}
+
+export interface IssuerSelector extends Issuer, Selector {}
+
+export interface CardTypeSelector extends CardType, Selector {}
 
 export const SearchSectionFilterContext = createContext({
     filters: [],

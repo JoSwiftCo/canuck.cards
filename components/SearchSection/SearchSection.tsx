@@ -6,8 +6,8 @@ import { mergeTailwindClass } from '../../utils/tailwindClass'
 
 import SearchSectionMobileView from './SearchSectionMobileView'
 import { SearchSectionFilterContext } from './SearchSectionFilterContext'
-import FilterSections from '../FilterSections/FilterSections'
-import FilteredCardsContainer from '../FilteredCardsContainer/FilteredCardsContainer'
+import FilterSections from '../FilterSections'
+import FilteredCardsContainer from '../FilteredCardsContainer'
 
 
 const SearchSection = () => {

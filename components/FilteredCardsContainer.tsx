@@ -1,6 +1,6 @@
-import { Benefit, BenefitCode, Benefits } from "../../classes/benefit.model";
-import { Card } from "../../classes/card.model";
-import CardImage from "../CardImage/CardImage";
+import { Benefit, BenefitCode, Benefits } from "../classes/benefit.model";
+import { Card } from "../classes/card.model";
+import CardImage from "./CardImage";
 
 interface CardBenefitBadgeProps {
     benefitCodes: BenefitCode[]

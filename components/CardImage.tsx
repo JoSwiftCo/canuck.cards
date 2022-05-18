@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { IssueCodeName } from '../../classes/issuer.model';
+import { IssueCodeName } from '../classes/issuer.model';
 
 export interface CardImageProps {
     imageUrl: string,

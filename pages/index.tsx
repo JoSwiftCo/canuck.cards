@@ -9,6 +9,7 @@ import SearchSectionFilterContextProvider from '../components/SearchSection/Sear
 export const AllCardsContext = createContext([]);
 
 const Home = ({ data, imageUrls }) => {
+  console.log(data);
   const [allCards] = useState<Card[]>(data);
   // if (imageUrls.length) {
   //   for (let i = 0; i < imageUrls.length; i++)

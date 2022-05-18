@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2015",
+    "target": "es5",
     "lib": [
       "dom",
       "dom.iterable",
@@ -22,8 +22,9 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "pages/api/[id].js"  ],
+    "**/*.tsx",
+    "pages/api/[id].js"
+  ],
   "exclude": [
     "node_modules"
   ]

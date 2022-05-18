@@ -10,6 +10,14 @@ const getTargetFolder = (folderName) => {
 }
 
 const checkFileNames = (fileNames, folderPath) => {
+    if (fileNames.length < 2) {
+        console.error('ERROR: Missing 1 file at: ', folderPath);
+        return false;
+    }
+    const fileExtensions = fileNames.map(name => name.split('.')[1]).join('');
+    if (fileExtensions !== 'jsonwebp' && fileExtensions !== 'webpjson') {
+        console.error('ERROR: Invalid file extensions at: ', folderPath);
+    }
     fileNames = fileNames.map(name => name.split('.')[0]);
     if (fileNames[0] !== fileNames[1]) {
         console.error('ERROR: Found invalid file names at: ', folderPath);

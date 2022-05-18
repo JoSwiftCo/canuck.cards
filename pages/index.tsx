@@ -8,13 +8,8 @@ import SearchSectionFilterContextProvider from '../components/SearchSection/Sear
 
 export const AllCardsContext = createContext([]);
 
-const Home = ({ data, imageUrls }) => {
-  console.log(data);
+const Home = ({ data }) => {
   const [allCards] = useState<Card[]>(data);
-  // if (imageUrls.length) {
-  //   for (let i = 0; i < imageUrls.length; i++)
-  //     fetch(imageUrls[i]);
-  // }
   return (
     <AllCardsContext.Provider value={allCards}>
       <Header></Header>
@@ -28,28 +23,15 @@ const Home = ({ data, imageUrls }) => {
 }
 
 const getStaticProps = async () => {
-  const basePath: string = '../../../public/thumbnails';
-  const parentDirectory: string = path.join(__dirname, basePath);
-  const issuerFolderNames: string[] = fs.readdirSync(parentDirectory);
-  let allCardsMetadata: string[] = [];
-  let imageUrls:string[] = [];
-  issuerFolderNames.forEach(issuerName => {
-    const issuerDirectory: string = `${parentDirectory}/${issuerName}`;
-    const cardFolderNames: string[] = fs.readdirSync(issuerDirectory);
-    cardFolderNames.forEach((cardName: string) => {
-      const cardJsonDirectory: string = `${issuerDirectory}/${cardName}`;
-      const cardFolderFiles: string[] = fs.readdirSync(cardJsonDirectory);
-      const imageFileName:string = cardFolderFiles.find(name => name.endsWith('.webp'));
-      if (imageFileName && !imageUrls.includes(imageFileName)) imageUrls.push(`/api/thumbnails/${issuerName}/${cardName}`);
-      const jsonFileName: string = cardFolderFiles.find(name => name.endsWith('.json'));
-      if (!jsonFileName) return;
-      const jsonFullPath: string = `${cardJsonDirectory}/${jsonFileName}`;
-      const fileContents = fs.readFileSync(jsonFullPath, 'utf8');
-      const jsonData = JSON.parse(fileContents);
-      allCardsMetadata.push(jsonData);
-    });
+  const jsonFolderPath:string = path.join(process.cwd(), 'public/jsons');
+  const jsonFileNames:string[] = fs.readdirSync(jsonFolderPath);
+  const allJsonContent:any[] = jsonFileNames.map(name => {
+    const jsonFullPath:string = path.join(process.cwd(), `public/jsons/${name}`);
+    const jsonContent:string = fs.readFileSync(jsonFullPath, 'utf8');
+    const jsonData:any = JSON.parse(jsonContent);
+    return jsonData;
   });
-  return { props: { data: allCardsMetadata, imageUrls: imageUrls } };
+  return { props: { data: allJsonContent } };
 }
 
 export { getStaticProps }

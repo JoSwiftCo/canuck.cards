@@ -1,18 +1,15 @@
 import Image from 'next/image';
-import { IssueCodeName } from '../classes/issuer.model';
 
 export interface CardImageProps {
-    imageUrl: string,
-    issuerCode: IssueCodeName
+    imageUrl: string
 }
 
-const CardImage = (props: CardImageProps) => {
-    const { imageUrl, issuerCode } = props;
+const CardImage = ( { imageUrl }: CardImageProps) => {
     return (
         <Image
             alt={imageUrl}
             className="rounded-lg"
-            src={`/api/thumbnails/${issuerCode}/${imageUrl}`}
+            src={`/api/thumbnail/${imageUrl}`}
             width={200}
             height={122}
         />

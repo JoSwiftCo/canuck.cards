@@ -1,0 +1,36 @@
+{
+    "codeName": "wealthsimple_prepaid_visa",
+    "displayName": "Wealthsimple Prepaid Visa Card",
+    "description": "Get 1% cash back on ALL purchases in stock or crypto",
+    "type": "prepaid",
+    "network": "visa",
+    "promo": "Get a $10 when you sign up for Wealthsimple Cash using our referral link (or code)",
+    "issuer": "wealthsimple",
+    "cashAdvanceInterest": null,
+    "spendingInterest": null,
+    "annualFee": 0,
+    "monthlyFee": 0,
+    "signUpFee": 0,
+    "topUpFee": 0,
+    "spendingCurrency": {
+        "name": "cad",
+        "symbol": "$"
+    },
+    "thumbnail": "wealthsimple_prepaid_visa",
+    "officialLink": "https://help.wealthsimple.com/hc/en-ca/articles/1500012888001",
+    "referralLink": "http://ws.cash/invite/$kienngo",
+    "referralCode": "MB5LCS",
+    "rewardProgramCode": null,
+    "additionalCard": null,
+    "benefits": [
+        "metal",
+        "cashback",
+        "free",
+        "fxspending",
+        "usd"
+    ],
+    "notes": [
+        "You need to make an account at Wealthsimple Cash in order to get a card. Support us by using the referral link!",
+        "Standard Visa fees still apply when making payments in other currencies other than the Canadian dollar"
+    ]
+}

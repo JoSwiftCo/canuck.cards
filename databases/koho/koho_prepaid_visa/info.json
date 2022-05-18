@@ -1,0 +1,35 @@
+{
+    "codeName": "koho_prepaid_visa",
+    "displayName": "KOHO Prepaid Visa Card",
+    "description": "Get 0.5% cash back on every purchase that you can instantly cash out in-app wherever, whenever!",
+    "type": "prepaid",
+    "network": "visa",
+    "promo": "",
+    "issuer": "koho",
+    "cashAdvanceInterest": null,
+    "spendingInterest": null,
+    "annualFee": 0,
+    "monthlyFee": 0,
+    "signUpFee": 0,
+    "topUpFee": 0,
+    "spendingCurrency": {
+        "name": "cad",
+        "symbol": "$"
+    },
+    "officialLink": "https://www.koho.ca/learn/prepaid-visa-card-koho/",
+    "referralLink": "https://web.koho.ca/referral/GB65VYBN",
+    "referralCode": "GB65VYBN",
+    "rewardProgramCode": null,
+    "additionalCard": null,
+    "benefits": [
+        "cashback",
+        "free",
+        "usd"
+    ],
+    "notes": [
+        "You need to make an account at KOHO in order to get a card. Support us by using the referral link!",
+        "This card's tier is upgradable using the app. You'll get the Premium tier for $9/month or $84 annually",
+        "KOHO has a Credit Building feature for $7/month",
+        "This card has relatively low FX fees (~1.5%)"
+    ]
+}

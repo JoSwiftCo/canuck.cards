@@ -37,7 +37,6 @@ const FilteredCardsContainer = ({ filteredCards }) => {
                         >
                         <CardImage
                             imageUrl={card.codeName}
-                            issuerCode={card.issuer}
                         ></CardImage>
                         <div className="flex flex-col justify-between p-[10px] leading-normal">
                             <h5 className="text-x1 tracking-tight text-gray-900 text-center">{card.displayName}</h5>

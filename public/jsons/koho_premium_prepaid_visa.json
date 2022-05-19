@@ -30,5 +30,16 @@
         "You need to make an account at KOHO in order to get a card. Support us by using the referral link!",
         "Earn 2% instant cash back on the 3 categories your wallet cares about. Get 0.5% cash back on everything else",
         "KOHO has a Credit Building feature for $7/month"
-    ]
+    ],
+    "highlights": [
+        "Price matching",
+        "Priority user support from KOHO",
+        "Financial coaching on demand",
+        "One free international ATM withdrawal per month"
+    ],
+    "benefitsDetails": {
+        "cashback": "0.5% - 2%",
+        "usd": "FX fees waived",
+        "fxspending": "FX fees waived"
+    }
 }

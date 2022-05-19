@@ -16,19 +16,19 @@ export interface Selector {
     checked: Boolean
 }
 
-export interface NetworkSelector extends Network, Selector {}
+export interface NetworkSelector extends Network, Selector { }
 
-export interface BenefitSelector extends Benefit, Selector {}
+export interface BenefitSelector extends Benefit, Selector { }
 
-export interface IssuerSelector extends Issuer, Selector {}
+export interface IssuerSelector extends Issuer, Selector { }
 
-export interface CardTypeSelector extends CardType, Selector {}
+export interface CardTypeSelector extends CardType, Selector { }
 
 export const SearchSectionFilterContext = createContext({
     filters: [],
-    updateFilterOptions: (sectionIndex:number, optionIndex: number) => {},
+    updateFilterOptions: (sectionIndex: number, optionIndex: number) => { },
     sortOptions: [],
-    updateSortOptions: (_options) => {},
+    updateSortOptions: (_options) => { },
     filteredCards: []
 });
 
@@ -99,13 +99,15 @@ const defaultFilters: FilterItem[] = [
     }
 ];
 
+console.log(defaultFilters)
+
 const SearchSectionFilterContextProvider = (props: { children: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal; }) => {
     const allCards = useContext<Card[]>(AllCardsContext);
     const [filters, setFilters] = useState<FilterItem[]>(defaultFilters);
     const [filteredCards, setFilteredCards] = useState<Card[]>([]);
-    const updateFilterOptions = (sectionIndex:number, optionIndex: number) => {
-        const target:Boolean = !filters[sectionIndex].options[optionIndex].checked;
-        const count:number = target ? 1 : -1;
+    const updateFilterOptions = (sectionIndex: number, optionIndex: number) => {
+        const target: Boolean = !filters[sectionIndex].options[optionIndex].checked;
+        const count: number = target ? 1 : -1;
         filters[sectionIndex].options[optionIndex].checked = target;
         filters[sectionIndex].count += count;
         setFilters([...filters]);
@@ -116,64 +118,70 @@ const SearchSectionFilterContextProvider = (props: { children: string | number |
     }
 
     const updateFilteredCard = () => {
-        if (filters.every((item:FilterItem) => item.count === 0)) {
+        if (filters.every((item: FilterItem) => item.count === 0)) {
             setFilteredCards([]);
             return;
         }
-        let results:Card[] = [];
 
-        const benefitSectionIndex:number = filters.findIndex((item:FilterItem) => item.id === 'benefits');
-        const networkSectionIndex:number = filters.findIndex((item:FilterItem) => item.id === 'networks');
-        const issuerSectionIndex:number = filters.findIndex((item:FilterItem) => item.id === 'issuers');
-        const cardTypeSectionIndex:number = filters.findIndex((item:FilterItem) => item.id === 'cardtypes');
+        const benefitSectionIndex: number = filters.findIndex((item: FilterItem) => item.id === 'benefits');
+        const networkSectionIndex: number = filters.findIndex((item: FilterItem) => item.id === 'networks');
+        const issuerSectionIndex: number = filters.findIndex((item: FilterItem) => item.id === 'issuers');
+        const cardTypeSectionIndex: number = filters.findIndex((item: FilterItem) => item.id === 'cardtypes');
 
-        const benefitsCount:number = filters[benefitSectionIndex].count;
-        const networksCount:number = filters[networkSectionIndex].count;
-        const issuersCount:number = filters[issuerSectionIndex].count;
-        const cardTypesCount:number = filters[cardTypeSectionIndex].count;
+        const benefitsCount: number = filters[benefitSectionIndex].count;
+        const networksCount: number = filters[networkSectionIndex].count;
+        const issuersCount: number = filters[issuerSectionIndex].count;
+        const cardTypesCount: number = filters[cardTypeSectionIndex].count;
 
-        const selectedBenefits:BenefitCode[] = filters[benefitSectionIndex].options
-            .filter((item:BenefitSelector) => item.checked)
-            .map((item:BenefitSelector) => item.codeName);
+        const selectedBenefits: BenefitCode[] = filters[benefitSectionIndex].options
+            .filter((item: BenefitSelector) => item.checked)
+            .map((item: BenefitSelector) => item.codeName);
 
-        const selectedNetworks:NetworkCode[] = filters[networkSectionIndex].options
-            .filter((item:NetworkSelector) => item.checked)
-            .map((item:NetworkSelector) => item.codeName);
+        const selectedNetworks: NetworkCode[] = filters[networkSectionIndex].options
+            .filter((item: NetworkSelector) => item.checked)
+            .map((item: NetworkSelector) => item.codeName);
 
-        const selectedIssuers:IssueCodeName[] = filters[networkSectionIndex].options
-            .filter((item:IssuerSelector) => item.checked)
-            .map((item:IssuerSelector) => item.codeName);
+        const selectedIssuers: IssueCodeName[] = filters[networkSectionIndex].options
+            .filter((item: IssuerSelector) => item.checked)
+            .map((item: IssuerSelector) => item.codeName);
 
-        const selectedCardTypes:CardTypeCode[] = filters[cardTypeSectionIndex].options
-            .filter((item:CardTypeSelector) => item.checked)
-            .map((item:CardTypeSelector) => item.codeName);
+        const selectedCardTypes: CardTypeCode[] = filters[cardTypeSectionIndex].options
+            .filter((item: CardTypeSelector) => item.checked)
+            .map((item: CardTypeSelector) => item.codeName);
 
-        if (networksCount && issuersCount && cardTypesCount) {
-            results = allCards.filter((card:Card) => 
-                selectedNetworks.includes(card.network) && 
-                selectedIssuers.includes(card.issuer) &&
-                selectedCardTypes.includes(card.type)
-            );
-        }
-        else {
-            if (networksCount) results = allCards.filter((card:Card) => selectedNetworks.includes(card.network));
-            if (issuersCount) results = allCards.filter((card:Card) => selectedIssuers.includes(card.issuer));
-            if (cardTypesCount) results = allCards.filter((card:Card) => selectedCardTypes.includes(card.type));
-        }
 
-        if (benefitsCount) {
-            const temp:Card[] = results.length ? results : allCards;
-            results = temp.filter((card: Card) => selectedBenefits.every((benefit:BenefitCode) => card.benefits.includes(benefit)));
-        }
-        console.log(results);
-        setFilteredCards(results);
+        let codeNamesFilteredFromIssuers: string[] = [];
+        let codeNamesFilteredFromNetworks: string[] = [];
+        let codeNamesFilteredFromTypes: string[] = [];
+        let codeNamesFilteredFromBenefits: string[] = [];
+
+        if (networksCount) codeNamesFilteredFromNetworks = 
+            allCards.filter((card: Card) => selectedNetworks.includes(card.network)).map((card:Card) => card.codeName);
+
+        if (issuersCount) codeNamesFilteredFromIssuers = 
+            allCards.filter((card: Card) => selectedIssuers.includes(card.issuer)).map((card:Card) => card.codeName);
+
+        if (cardTypesCount) codeNamesFilteredFromTypes = 
+            allCards.filter((card: Card) => selectedCardTypes.includes(card.type)).map((card:Card) => card.codeName);
+
+        if (benefitsCount) codeNamesFilteredFromBenefits = 
+            allCards.filter((card: Card) => selectedBenefits.every((benefit: BenefitCode) => card.benefits.includes(benefit))).map((card:Card) => card.codeName);
+
+        const finalResult = allCards.filter((card:Card) => 
+            (networksCount === 0 || codeNamesFilteredFromNetworks.includes(card.codeName)) &&
+            (issuersCount === 0 || codeNamesFilteredFromIssuers.includes(card.codeName)) &&
+            (cardTypesCount === 0 || codeNamesFilteredFromTypes.includes(card.codeName)) &&
+            (benefitsCount === 0 || codeNamesFilteredFromBenefits.includes(card.codeName))
+        );
+        console.log(finalResult);
+        setFilteredCards(finalResult);
     }
 
     useEffect(() => {
         updateFilteredCard();
     }, [filters]);
     return (
-        <SearchSectionFilterContext.Provider value={{filters, updateFilterOptions, sortOptions, updateSortOptions, filteredCards}}>
+        <SearchSectionFilterContext.Provider value={{ filters, updateFilterOptions, sortOptions, updateSortOptions, filteredCards }}>
             {props.children}
         </SearchSectionFilterContext.Provider>
     )

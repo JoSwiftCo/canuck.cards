@@ -92,5 +92,6 @@ export interface Card {
     additionalCard: AdditionalCard | null, // Prepaid cards don't have this feature
     benefits: BenefitCode[],
     notes: string[],
-    highlights:string[]
+    highlights:string[],
+    benefitsDetails: any // used for more information on the benefits (Tooltip)
 }

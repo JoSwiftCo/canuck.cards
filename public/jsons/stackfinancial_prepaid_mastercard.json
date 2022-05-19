@@ -32,5 +32,11 @@
         "You need to make an account at STACK in order to get a card. Support us by using the referral link! ($5 sign-up bonus)",
         "The FX fees are refunded when you make a minimum of $350 CAD in purchases per month",
         "STACK has its own in-app offers (just like Amex) where you can get relatively high cash back/reward rates"
-    ]
+    ],
+    "highlights": [
+
+    ],
+    "benefitsDetails": {
+        "cashback": "varies"
+    }
 }

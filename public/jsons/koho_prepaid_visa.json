@@ -31,5 +31,9 @@
         "This card's tier is upgradable using the app. You'll get the Premium tier for $9/month or $84 annually",
         "KOHO has a Credit Building feature for $7/month",
         "This card has relatively low FX fees (~1.5%)"
-    ]
+    ],
+    "highlights": [],
+    "benefitsDetails": {
+        "cashback": "0.5%"
+    }
 }

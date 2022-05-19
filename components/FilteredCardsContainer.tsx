@@ -46,6 +46,13 @@ const FilteredCardsContainer = ({ filteredCards }) => {
                                 <CardBenefitBadges benefitCodes={card.benefits}></CardBenefitBadges>
                             </div>
                         </div>
+                        <ul className="text-center text-sm text-gray-700">
+                            {
+                                card.highlights.map((item:string) => (
+                                    <li key={item}>{ item }</li>
+                                ))
+                            }
+                        </ul>
                         <button className="absolute bottom-1 rounded-full focus:outline-none 
                             text-white bg-purple-700 hover:bg-purple-800 focus:ring-purple-300 
                             font-medium text-sm px-5 py-2.5 mb-2 dark:bg-purple-600

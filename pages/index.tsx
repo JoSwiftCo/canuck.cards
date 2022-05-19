@@ -12,7 +12,7 @@ const Home = ({ data }) => {
   const [allCards] = useState<Card[]>(data);
   return (
     <AllCardsContext.Provider value={allCards}>
-      <Header></Header>
+      {/* <Header></Header> */}
       <SearchSectionFilterContextProvider>
         <SearchSection></SearchSection>
       </SearchSectionFilterContextProvider>

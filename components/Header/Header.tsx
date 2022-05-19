@@ -12,12 +12,8 @@ import {
     ShieldCheckIcon,
     SupportIcon,
     ViewGridIcon,
-    XIcon,
-    CreditCardIcon
+    XIcon
 } from '@heroicons/react/outline';
-import { ChevronDownIcon } from '@heroicons/react/solid';
-import { mergeTailwindClass } from '../../utils/tailwindClass';
-import Image from 'next/image';
 const solutions = [
     {
         name: 'Analytics',

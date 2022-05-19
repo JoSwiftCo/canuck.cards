@@ -22,7 +22,7 @@ export type BenefitCode =
     'crypto'
 ;
 
-export const Benefits:Array<Benefit> = [
+export const Benefits:Benefit[] = [
     {
         displayName: 'Travel',
         codeName: 'travel'

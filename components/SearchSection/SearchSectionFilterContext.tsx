@@ -72,7 +72,7 @@ const issuerOptions: IssuerSelector[] = Issuers.map(item => {
     return newItem;
 });
 
-const defaultFilters: Array<FilterItem> = [
+const defaultFilters: FilterItem[] = [
     {
         id: 'networks',
         name: 'Networks',

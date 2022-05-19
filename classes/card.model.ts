@@ -90,6 +90,7 @@ export interface Card {
     referralCode: string,
     rewardProgramCode: RewardProgramCodeName | null,
     additionalCard: AdditionalCard | null, // Prepaid cards don't have this feature
-    benefits: Array<BenefitCode>,
-    notes: Array<string>
+    benefits: BenefitCode[],
+    notes: string[],
+    highlights:string[]
 }

@@ -7,7 +7,7 @@ export interface Issuer {
     linkToAllPrepaidCards: string, // Used to track if there's a new card
 }
 
-export const Issuers:Array<Issuer> = [
+export const Issuers:Issuer[] = [
     {
         displayName: 'American Express',
         codeName: 'amex',

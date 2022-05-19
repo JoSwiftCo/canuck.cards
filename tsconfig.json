@@ -26,6 +26,8 @@
     "pages/api/[id].js"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "databases",
+    "utils/dataMigration.js"
   ]
 }

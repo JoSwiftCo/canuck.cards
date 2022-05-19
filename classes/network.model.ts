@@ -7,7 +7,7 @@ export interface Network {
     availableInCanada: Boolean
 }
 
-export const Networks:Array<Network> = [
+export const Networks:Network[] = [
     {
         displayName: 'American Express',
         codeName: 'amex',

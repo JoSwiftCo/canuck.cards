@@ -31,7 +31,7 @@ const FilteredCardsContainer = ({ filteredCards }) => {
             {
                 filteredCards.map((card: Card) => (
                     <a href="#" key={card.codeName}
-                        className="relative rounded-lg pt-3 my-2 mx-2 flex 
+                        className="relative rounded-lg pt-3 my-2 mx-2 flex px-1
                             flex-col items-center border-2 lg:max-w-[47%] 
                             md:max-w-[47%] sm:max-w-lg h-[500px] hover:bg-stone-50"
                         >
@@ -40,7 +40,7 @@ const FilteredCardsContainer = ({ filteredCards }) => {
                         ></CardImage>
                         <div className="flex flex-col justify-between p-[10px] leading-normal">
                             <h5 className="text-x1 tracking-tight text-gray-900 text-center">{card.displayName}</h5>
-                            <p className="text-center font-bold">{card.spendingCurrency.symbol} {card.annualFee}/year</p>
+                            <p className="text-center font-bold">{card.spendingCurrency.symbol}{card.annualFee}/year</p>
                             <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 text-center">{card.description}</p>
                             <div className="flex flex-wrap flex-row justify-center">
                                 <CardBenefitBadges benefitCodes={card.benefits}></CardBenefitBadges>

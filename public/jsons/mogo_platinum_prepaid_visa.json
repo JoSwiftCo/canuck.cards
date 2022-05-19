@@ -1,0 +1,37 @@
+{
+    "codeName": "mogo_platinum_prepaid_visa",
+    "displayName": "Mogo Prepaid Visa Card",
+    "description": "Plant a tree every time you tap and receive 50 Green Satoshi rewards.",
+    "type": "prepaid",
+    "network": "visa",
+    "promo": "",
+    "issuer": "mogo",
+    "cashAdvanceInterest": null,
+    "spendingInterest": null,
+    "annualFee": 0,
+    "monthlyFee": 0,
+    "signUpFee": 0,
+    "topUpFee": 0,
+    "spendingCurrency": {
+        "name": "cad",
+        "symbol": "$"
+    },
+    "officialLink": "https://www.mogo.ca/prepaid-visa-card-canada/",
+    "referralLink": "https://app.mogo.ca/go?referral_code=Y592W1AY",
+    "referralCode": "Y592W1AY",
+    "rewardProgramCode": null,
+    "additionalCard": null,
+    "benefits": [
+        "crypto",
+        "free"
+    ],
+    "notes": [
+        "Help us by signing up with the ref link. You'll plant 8 trees and get 1000 green satoshis!"
+    ],
+    "highlights": [
+        "Free monthly credit score monitoring and identity fraud protection"
+    ],
+    "benefitsDetails": {
+        "crypto": "50 Green Satoshis per tap"
+    }
+}

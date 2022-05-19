@@ -99,7 +99,7 @@ const SearchSection = () => {
                         {/* Product grid */}
                         <div className="lg:col-span-3">
                             {/* Replace with your content */}
-                            <div className="lg:h-[calc(100vh_-_200px)] md:h-full sm:h-full flex flex-row flex-wrap w-full overflow-y-auto lg:px-20 md:px-15 sm:px-1">
+                            <div className="lg:h-[calc(100vh_-_100px)] md:h-full sm:h-full flex flex-row flex-wrap w-full overflow-y-auto lg:px-20 md:px-15 sm:px-1">
                                 <FilteredCardsContainer
                                     filteredCards={filteredCards}
                                 ></FilteredCardsContainer>

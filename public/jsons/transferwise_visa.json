@@ -1,0 +1,36 @@
+{
+    "codeName": "transferwise_visa",
+    "displayName": "Wise Visa Debit Card",
+    "description": "Spend abroad with the real exchange rate. No markups, no sneaky transaction fees.",
+    "type": "prepaid",
+    "network": "visa",
+    "promo": "",
+    "issuer": "transferwise",
+    "cashAdvanceInterest": null,
+    "spendingInterest": null,
+    "annualFee": 0,
+    "monthlyFee": 0,
+    "signUpFee": 0,
+    "topUpFee": 0,
+    "spendingCurrency": {
+        "name": "cad",
+        "symbol": "$"
+    },
+    "officialLink": "https://wise.com/ca/card/",
+    "referralLink": "https://wise.com/invite/i/kienn17",
+    "referralCode": "kienn17",
+    "rewardProgramCode": null,
+    "additionalCard": null,
+    "benefits": [
+        "usd",
+        "free",
+        "fxspending"
+    ],
+    "notes": [
+    ],
+    "highlights": [
+        "Take out up to 350 CAD in cash a month for free."
+    ],
+    "benefitsDetails": {
+    }
+}

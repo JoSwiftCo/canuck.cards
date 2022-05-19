@@ -173,7 +173,6 @@ const SearchSectionFilterContextProvider = (props: { children: string | number |
             (cardTypesCount === 0 || codeNamesFilteredFromTypes.includes(card.codeName)) &&
             (benefitsCount === 0 || codeNamesFilteredFromBenefits.includes(card.codeName))
         );
-        console.log(finalResult);
         setFilteredCards(finalResult);
     }
 

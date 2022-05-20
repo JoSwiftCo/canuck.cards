@@ -3,14 +3,11 @@ import { Menu } from '@headlessui/react'
 import { ChevronDownIcon, FilterIcon } from '@heroicons/react/solid'
 import { SearchSectionFilterContext } from './SearchSectionFilterContext'
 import FilterSections from '../FilterSections'
-import dynamic from "next/dynamic";
 import { Card } from '../../classes/card.model'
-
-// Lazy importing hidden-by-default components
-const SearchSectionMobileViewDynamic = dynamic(() => import('./SearchSectionMobileView'));
-const FilteredCardsContainerDynamic = dynamic(() => import("../FilteredCardsContainer"));
-const CardDialogDynamic = dynamic(() => import("../CardDialog"));
-const SortContainerDynamic = dynamic(() => import('../SortContainer'));
+import SearchSectionMobileView from './SearchSectionMobileView'
+import CardDialog from '../CardDialog'
+import SortContainer from '../SortContainer'
+import FilteredCardsContainer from '../FilteredCardsContainer'
 
 const SearchSection = () => {
     const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
@@ -20,17 +17,17 @@ const SearchSection = () => {
     return (
         <>
             {/* Mobile filter dialog */}
-            <SearchSectionMobileViewDynamic
+            <SearchSectionMobileView
                 mobileFiltersOpen={mobileFiltersOpen}
                 setMobileFiltersOpen={setMobileFiltersOpen}
-            ></SearchSectionMobileViewDynamic>
+            ></SearchSectionMobileView>
 
             {/* Card Dialog */}
-            <CardDialogDynamic
+            <CardDialog
                 cardDialogOpen={cardDialogOpen}
                 setCardDialogOpen={setCardDialogOpen}
                 selectedCardForDialog={selectedCardForDialog}
-            ></CardDialogDynamic>
+            ></CardDialog>
 
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[calc(100vh_-_64px)]">
                 <div className="relative z-10 flex items-baseline justify-end pt-3 pb-3 h-[50px]">
@@ -45,7 +42,7 @@ const SearchSection = () => {
                                     />
                                 </Menu.Button>
                             </div>
-                            <SortContainerDynamic></SortContainerDynamic>
+                            <SortContainer></SortContainer>
                         </Menu>
                         <button
                             type="button"
@@ -76,11 +73,11 @@ const SearchSection = () => {
                         <div className="lg:col-span-3">
                             {/* Replace with your content */}
                             <div className="lg:h-[calc(100vh_-_114px)] md:h-full sm:h-full flex flex-row flex-wrap w-full overflow-y-auto lg:px-20 md:px-15 sm:px-1">
-                                <FilteredCardsContainerDynamic
+                                <FilteredCardsContainer
                                     filteredCards={filteredCards}
                                     setSelectedCardForDialog={setSelectedCardForDialog}
                                     setCardDialogOpen={setCardDialogOpen}
-                                ></FilteredCardsContainerDynamic>
+                                ></FilteredCardsContainer>
                             </div>
                             {/* /End replace */}
                         </div>

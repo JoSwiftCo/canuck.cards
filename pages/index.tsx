@@ -4,16 +4,15 @@ import { createContext, useState } from 'react';
 import { Card } from '../classes/card.model';
 import SearchSection from '../components/SearchSection/SearchSection';
 import SearchSectionFilterContextProvider from '../components/SearchSection/SearchSectionFilterContext';
-import dynamic from "next/dynamic";
+import Header from "../components/Header";
 
-const HeaderDynamic = dynamic(() => import('../components/Header'));
 export const AllCardsContext = createContext([]);
 
 const Home = ({ data }) => {
   const [allCards] = useState<Card[]>(data);
   return (
     <AllCardsContext.Provider value={allCards}>
-      <HeaderDynamic></HeaderDynamic>
+      <Header></Header>
       <SearchSectionFilterContextProvider>
         <SearchSection></SearchSection>
       </SearchSectionFilterContextProvider>

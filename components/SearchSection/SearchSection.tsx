@@ -1,15 +1,13 @@
 import { Fragment, useContext, useState } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon, FilterIcon, ViewGridIcon } from '@heroicons/react/solid'
-
 import { mergeTailwindClass } from '../../utils/tailwindClass'
-
 import SearchSectionMobileView from './SearchSectionMobileView'
 import { SearchSectionFilterContext } from './SearchSectionFilterContext'
 import FilterSections from '../FilterSections'
-import FilteredCardsContainer from '../FilteredCardsContainer'
+import dynamic from "next/dynamic";
 
-
+const FilteredCardsContainerDynamic = dynamic(() => import("../FilteredCardsContainer"));
 const SearchSection = () => {
     const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
     const { updateFilterOptions, sortOptions, updateSortOptions, filteredCards } = useContext(SearchSectionFilterContext);
@@ -100,9 +98,9 @@ const SearchSection = () => {
                         <div className="lg:col-span-3">
                             {/* Replace with your content */}
                             <div className="lg:h-[calc(100vh_-_80px)] md:h-full sm:h-full flex flex-row flex-wrap w-full overflow-y-auto lg:px-20 md:px-15 sm:px-1">
-                                <FilteredCardsContainer
+                                <FilteredCardsContainerDynamic
                                     filteredCards={filteredCards}
-                                ></FilteredCardsContainer>
+                                ></FilteredCardsContainerDynamic>
                             </div>
                             {/* /End replace */}
                         </div>

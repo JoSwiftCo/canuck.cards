@@ -2,22 +2,35 @@ import { Fragment, useContext, useState } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon, FilterIcon, ViewGridIcon } from '@heroicons/react/solid'
 import { mergeTailwindClass } from '../../utils/tailwindClass'
-import SearchSectionMobileView from './SearchSectionMobileView'
 import { SearchSectionFilterContext } from './SearchSectionFilterContext'
 import FilterSections from '../FilterSections'
 import dynamic from "next/dynamic";
+import { Card } from '../../classes/card.model'
 
+// Lazy importing hidden-by-default components
+const SearchSectionMobileViewDynamic = dynamic(() => import('./SearchSectionMobileView'));
 const FilteredCardsContainerDynamic = dynamic(() => import("../FilteredCardsContainer"));
+const CardDialogDynamic = dynamic(() => import("../CardDialog"));
+
 const SearchSection = () => {
     const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+    const [cardDialogOpen, setCardDialogOpen] = useState(false);
+    const [selectedCardForDialog, setSelectedCardForDialog] = useState<Card|any>({});
     const { updateFilterOptions, sortOptions, updateSortOptions, filteredCards } = useContext(SearchSectionFilterContext);
     return (
         <>
             {/* Mobile filter dialog */}
-            <SearchSectionMobileView
+            <SearchSectionMobileViewDynamic
                 mobileFiltersOpen={mobileFiltersOpen}
                 setMobileFiltersOpen={setMobileFiltersOpen}
-            ></SearchSectionMobileView>
+            ></SearchSectionMobileViewDynamic>
+
+            {/* Card Dialog */}
+            <CardDialogDynamic
+                cardDialogOpen={cardDialogOpen}
+                setCardDialogOpen={setCardDialogOpen}
+                selectedCardForDialog={selectedCardForDialog}
+            ></CardDialogDynamic>
 
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="relative z-10 flex items-baseline justify-between pt-3 pb-3 h-[50px]">
@@ -100,6 +113,8 @@ const SearchSection = () => {
                             <div className="lg:h-[calc(100vh_-_80px)] md:h-full sm:h-full flex flex-row flex-wrap w-full overflow-y-auto lg:px-20 md:px-15 sm:px-1">
                                 <FilteredCardsContainerDynamic
                                     filteredCards={filteredCards}
+                                    setSelectedCardForDialog={setSelectedCardForDialog}
+                                    setCardDialogOpen={setCardDialogOpen}
                                 ></FilteredCardsContainerDynamic>
                             </div>
                             {/* /End replace */}

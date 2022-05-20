@@ -30,7 +30,7 @@ const SearchSection = () => {
             ></CardDialog>
 
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[calc(100vh_-_64px)]">
-                <div className="relative z-10 flex items-baseline justify-end pt-3 pb-3 h-[50px]">
+                <div className="relative z-10 flex items-baseline justify-end pt-3 h-[50px]">
                     <div className="flex items-center">
                         <Menu as="div" className="relative inline-block text-left">
                             <div>
@@ -58,7 +58,7 @@ const SearchSection = () => {
                 <section aria-labelledby="products-heading" className="pt-0 pb-4">
                     <div className="grid grid-cols-1 lg:grid-cols-4 gap-x-8 gap-y-10">
                         {/* Filters */}
-                        <div className="hidden lg:block h-[calc(100vh_-_114px)] overflow-y-auto">
+                        <div className="hidden lg:block h-[calc(100vh_-_120px)] overflow-y-auto">
                             <FilterSections
                                 disclosureClasses='border-b border-gray-200 py-6'
                                 disclosureH3Classes='-my-3 flow-root'
@@ -70,9 +70,8 @@ const SearchSection = () => {
                         </div>
 
                         {/* Product grid */}
-                        <div className="lg:col-span-3">
                             {/* Replace with your content */}
-                            <div className="lg:h-[calc(100vh_-_114px)] md:h-full sm:h-full flex flex-row flex-wrap w-full overflow-y-auto lg:px-20 md:px-15 sm:px-1">
+                            <div className="lg:col-span-3 lg:h-[calc(100vh_-_120px)] flex flex-row flex-wrap w-full overflow-y-auto lg:px-20 md:px-15 sm:px-1">
                                 <FilteredCardsContainer
                                     filteredCards={filteredCards}
                                     setSelectedCardForDialog={setSelectedCardForDialog}
@@ -81,7 +80,6 @@ const SearchSection = () => {
                             </div>
                             {/* /End replace */}
                         </div>
-                    </div>
                 </section>
             </main>
         </>

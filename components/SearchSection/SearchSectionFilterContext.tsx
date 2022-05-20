@@ -99,8 +99,6 @@ const defaultFilters: FilterItem[] = [
     }
 ];
 
-console.log(defaultFilters)
-
 const SearchSectionFilterContextProvider = (props: { children: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal; }) => {
     const allCards = useContext<Card[]>(AllCardsContext);
     const [filters, setFilters] = useState<FilterItem[]>(defaultFilters);
@@ -141,7 +139,7 @@ const SearchSectionFilterContextProvider = (props: { children: string | number |
             .filter((item: NetworkSelector) => item.checked)
             .map((item: NetworkSelector) => item.codeName);
 
-        const selectedIssuers: IssueCodeName[] = filters[networkSectionIndex].options
+        const selectedIssuers: IssueCodeName[] = filters[issuerSectionIndex].options
             .filter((item: IssuerSelector) => item.checked)
             .map((item: IssuerSelector) => item.codeName);
 

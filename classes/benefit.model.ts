@@ -20,9 +20,9 @@ export type BenefitCode =
     'usd' |
     'metal' |
     'crypto'
-    ;
+;
 
-export const Benefits: Benefit[] = [
+export const Benefits:Benefit[] = [
     {
         displayName: 'Travel',
         codeName: 'travel'
@@ -87,12 +87,4 @@ export const Benefits: Benefit[] = [
         displayName: 'Metal card',
         codeName: 'metal'
     }
-].sort((a, b) => {
-    if (a.displayName < b.displayName) {
-        return -1;
-    }
-    if (a.displayName > b.displayName) {
-        return 1;
-    }
-    return 0;
-});
+];

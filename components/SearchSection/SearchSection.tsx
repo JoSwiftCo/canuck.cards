@@ -1,7 +1,6 @@
-import { Fragment, useContext, useState } from 'react'
-import { Menu, Transition } from '@headlessui/react'
-import { ChevronDownIcon, FilterIcon, ViewGridIcon } from '@heroicons/react/solid'
-import { mergeTailwindClass } from '../../utils/tailwindClass'
+import { useContext, useState } from 'react'
+import { Menu } from '@headlessui/react'
+import { ChevronDownIcon, FilterIcon } from '@heroicons/react/solid'
 import { SearchSectionFilterContext } from './SearchSectionFilterContext'
 import FilterSections from '../FilterSections'
 import dynamic from "next/dynamic";
@@ -33,12 +32,12 @@ const SearchSection = () => {
                 selectedCardForDialog={selectedCardForDialog}
             ></CardDialogDynamic>
 
-            <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="relative z-10 flex items-baseline justify-between pt-3 pb-3 h-[50px]">
+            <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[calc(100vh_-_64px)]">
+                <div className="relative z-10 flex items-baseline justify-end pt-3 pb-3 h-[50px]">
                     <div className="flex items-center">
                         <Menu as="div" className="relative inline-block text-left">
                             <div>
-                                <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
+                                <Menu.Button className="group inline-flex justify-center text-sm font-medium text-white bg-gray-800 px-2 py-1 rounded-full">
                                     Sort
                                     <ChevronDownIcon
                                         className="flex-shrink-0 -mr-1 ml-1 h-5 w-5 text-gray-400 group-hover:text-gray-500"
@@ -50,7 +49,7 @@ const SearchSection = () => {
                         </Menu>
                         <button
                             type="button"
-                            className="p-2 -m-2 ml-4 sm:ml-6 text-gray-400 hover:text-gray-500 lg:hidden"
+                            className="p-2 -m-2 ml-4 sm:ml-6 lg:hidden"
                             onClick={() => setMobileFiltersOpen(true)}
                         >
                             <span className="sr-only">Filters</span>
@@ -62,7 +61,7 @@ const SearchSection = () => {
                 <section aria-labelledby="products-heading" className="pt-0 pb-4">
                     <div className="grid grid-cols-1 lg:grid-cols-4 gap-x-8 gap-y-10">
                         {/* Filters */}
-                        <div className="hidden lg:block h-[calc(100vh_-_80px)] overflow-y-auto">
+                        <div className="hidden lg:block h-[calc(100vh_-_114px)] overflow-y-auto">
                             <FilterSections
                                 disclosureClasses='border-b border-gray-200 py-6'
                                 disclosureH3Classes='-my-3 flow-root'
@@ -76,7 +75,7 @@ const SearchSection = () => {
                         {/* Product grid */}
                         <div className="lg:col-span-3">
                             {/* Replace with your content */}
-                            <div className="lg:h-[calc(100vh_-_80px)] md:h-full sm:h-full flex flex-row flex-wrap w-full overflow-y-auto lg:px-20 md:px-15 sm:px-1">
+                            <div className="lg:h-[calc(100vh_-_114px)] md:h-full sm:h-full flex flex-row flex-wrap w-full overflow-y-auto lg:px-20 md:px-15 sm:px-1">
                                 <FilteredCardsContainerDynamic
                                     filteredCards={filteredCards}
                                     setSelectedCardForDialog={setSelectedCardForDialog}

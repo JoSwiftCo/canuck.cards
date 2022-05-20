@@ -2,22 +2,21 @@ import path from "path";
 import fs from "fs";
 import { createContext, useState } from 'react';
 import { Card } from '../classes/card.model';
-import Header from '../components/Header/Header';
 import SearchSection from '../components/SearchSection/SearchSection';
 import SearchSectionFilterContextProvider from '../components/SearchSection/SearchSectionFilterContext';
+import dynamic from "next/dynamic";
 
+const HeaderDynamic = dynamic(() => import('../components/Header'));
 export const AllCardsContext = createContext([]);
 
 const Home = ({ data }) => {
   const [allCards] = useState<Card[]>(data);
   return (
     <AllCardsContext.Provider value={allCards}>
-      {/* <Header></Header> */}
+      <HeaderDynamic></HeaderDynamic>
       <SearchSectionFilterContextProvider>
         <SearchSection></SearchSection>
       </SearchSectionFilterContextProvider>
-      <div>
-      </div>
     </AllCardsContext.Provider>
   );
 }

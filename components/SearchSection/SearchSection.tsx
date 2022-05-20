@@ -22,7 +22,7 @@ const SearchSection = () => {
             ></SearchSectionMobileView>
 
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="relative z-10 flex items-baseline justify-between pt-3 pb-3">
+                <div className="relative z-10 flex items-baseline justify-between pt-3 pb-3 h-[50px]">
                     <div className="flex items-center">
                         <Menu as="div" className="relative inline-block text-left">
                             <div>
